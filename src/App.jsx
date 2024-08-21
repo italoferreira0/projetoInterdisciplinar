@@ -11,9 +11,9 @@ import SistemasInformacao from './components/Cards/SistemasInformacao';
 
 function App() {
   return (
-    <div>
+    <div >
       <Navbar />
-      <Container>
+      <div className='container'>
         <div className='App'>
           <Row>
             <Col md={3}>
@@ -58,7 +58,7 @@ function App() {
         </div>
 
 
-      </Container>
+      </div >
     </div>
 
   );
