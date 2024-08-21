@@ -1,6 +1,5 @@
 import { useState } from "react";
-import '../components/DivExpansivel.css'
-
+import '../Cards/DivExpansivel.css'
 function ADS() {
     const [Expandir, setExpandir] = useState(false);
     const alterarTamanho = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../components/DivExpansivel.css'
+import '../Cards/DivExpansivel.css'
 
 function Computacao() {
     
