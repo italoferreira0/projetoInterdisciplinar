@@ -2,6 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../src/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 //Cards--------------------------------------------------------------------
 import ADS from './components/Cards/ADS';
@@ -52,6 +53,18 @@ function App() {
               <SistemasInformacao />
             </Col>
 
+          </Row>  
+          <Row>
+            <Col md={3}>
+              <ADS />
+            </Col>
+            <Col md={3}>
+              <Computacao />
+            </Col>
+            <Col md={3}>
+              <SistemasInformacao />
+            </Col>
+
           </Row>
 
 
@@ -59,6 +72,8 @@ function App() {
 
 
       </div >
+      <br /><br />
+      <Footer/>
     </div>
 
   );
