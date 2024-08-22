@@ -43,31 +43,6 @@ function App() {
               <SistemasInformacao />
             </Col>
           </Row>
-
-          <Row>
-            <Col md={3}>
-              <ADS />
-            </Col>
-            <Col md={3}>
-              <Computacao />
-            </Col>
-            <Col md={3}>
-              <SistemasInformacao />
-            </Col>
-          </Row>
-
-          <Row>
-            <Col md={3}>
-              <ADS />
-            </Col>
-            <Col md={3}>
-              <Computacao />
-            </Col>
-            <Col md={3}>
-              <SistemasInformacao />
-            </Col>
-          </Row>
-
         </div>
       </div >
       <br /><br />
