@@ -4,7 +4,7 @@ function API() {
     const [repositories, setRepositories] = useState([])
 
     useEffect(() => {
-        fetch('https://api.github.com/repos/RodrigoSoaresNascimento/coursesTiApi')
+        fetch('https://api.github.com/users/RodrigoSoaresNascimento/repos')
         .then(response => response.json())
         .then(data => console.log(data))
     }, [])
