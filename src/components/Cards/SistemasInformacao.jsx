@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../Cards/DivExpansivel.css'
+import '../Cards/SistemasInformacao.css'
 
 function SistemasInformacao() {
     const [Expandir, setExpandir] = useState(false);
