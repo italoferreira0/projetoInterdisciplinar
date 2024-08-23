@@ -1,9 +1,16 @@
 [ 
     {
-        "nome": "Analise e Desenvolvimento de Sistema",
+        "nome": "Analise e Desenvolvimento de Sistemas",
         "duracao": "2 anos",
         "periodos": 6,
         "graducao": "Tecnologo",
         "Instituicao": "Mauricio de Nassau"        
+    },
+    {
+        "nome": "Ciencia da Computação",
+        "duracao": "5 anos",
+        "periodos": 10,
+        "graducao": "Bacharelada",
+        "Instituicao": "Universidade Federal de Campina Grande"        
     }
 ]
