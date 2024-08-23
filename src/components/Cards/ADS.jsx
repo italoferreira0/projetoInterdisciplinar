@@ -2,26 +2,33 @@ import { useState } from "react";
 import '../Cards/ADS.css'
 
 function ADS() {
-    const elemento = document.getElementById("nome")
-    const nome = elemento.textContent;
     
+    const idCurso = 1 //ADS
+        
     function carregar() {
         fetch("/Dados.json") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
                 // Filtra o curso
-                const curso = cursos.find(curso => curso.nome === nome);
+                const curso = cursos.find(curso => curso.id === idCurso);
                 
                 if (curso) {
-                    let paragrafo = document.querySelector("#paragrafo")
-                    paragrafo.innerHTML = `Curso: ${curso.nome} <br>
-                    Duração: ${curso.duracao} <br> Períodos: ${curso.periodos} <br>
-                    Graduação: ${curso.graducao} <br> Instituição: ${curso.Instituicao} `
+                    let CardTitle = document.getElementById("CardTitle")
+                    CardTitle.innerHTML=curso.nome
+
+                    let paragrafo = document.querySelector("#paragrafo");
+                    paragrafo.innerHTML = `
+                    Instituição: ${curso.Instituicao}<br> 
+                    Graduação: ${curso.graduacao} <br> 
+                    Períodos: ${curso.periodos}<br> 
+                    Duração: ${curso.duracao} <br> 
+                     
+                    `;
                 } else {
                     console.log("Curso não encontrado.");
                 }
             })
-            .catch(error => console.error("Erro ao carregar os dados:", error));
+            
     }
     carregar()
 
@@ -37,14 +44,13 @@ function ADS() {
 
     return (
         <div>
-            <div className={Expandir ? 'DivMaximizada' : 'DivMinimizada'} onClick={alterarTamanho}
+            <div className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="nome">Analise e Desenvolvimento de Sistemas</p>
+                <p id="CardTitle"></p>
                 {Expandir && (
                     <div id="conteudo">
                         <p id="paragrafo">Sobre o curso ....</p>
-
                     </div>
                 )}
             </div>

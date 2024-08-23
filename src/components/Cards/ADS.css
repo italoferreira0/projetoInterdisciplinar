@@ -1,4 +1,4 @@
-.DivMinimizada {
+.ADSMinimizada {
     margin-left: 140px;
     width: 200px;
     height: 100px;
@@ -10,10 +10,10 @@
     margin-bottom: 10px;
     text-align: center;
 
-
 }
 
-.DivMaximizada {
+.ADSMaximizada {
+    text-align: left;
     z-index: 1000;
     width: 600px;
     height: 400px;

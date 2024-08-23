@@ -1,16 +1,23 @@
 [ 
-    {
+    {   "id": 1,
         "nome": "Analise e Desenvolvimento de Sistemas",
         "duracao": "2 anos",
         "periodos": 6,
-        "graducao": "Tecnologo",
-        "Instituicao": "Mauricio de Nassau"        
+        "graduacao": "Tecnologo",
+        "Instituicao": "Faculdade Maurício de Nassau"        
     },
-    {
+    {   "id": 2,
         "nome": "Ciencia da Computação",
         "duracao": "5 anos",
         "periodos": 10,
-        "graducao": "Bacharelada",
+        "graduacao": "Bacharelado",
         "Instituicao": "Universidade Federal de Campina Grande"        
+    },
+    {   "id": 3,
+        "nome": "Sistemas de Informação",
+        "duracao": "4 anos",
+        "periodos": 8,
+        "graduacao": "Bacharelado",
+        "Instituicao": "UNIFACISA - Centro Universitário"        
     }
 ]
