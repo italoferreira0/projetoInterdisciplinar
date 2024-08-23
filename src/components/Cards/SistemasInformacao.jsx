@@ -12,10 +12,10 @@ const idCurso = 3
                 const curso = cursos.find(curso => curso.id === idCurso);
                 
                 if (curso) {
-                    let CardTitle = document.getElementById("CardTitle")
-                    CardTitle.innerHTML=curso.nome
+                    let CardSI = document.getElementById("CardSI")
+                    CardSI.innerHTML=curso.nome
 
-                    let paragrafo = document.querySelector("#paragrafo");
+                    let paragrafo = document.querySelector("#SIparagrafo");
                     paragrafo.innerHTML = `
                     Instituição: ${curso.Instituicao}<br> 
                     Graduação: ${curso.graduacao} <br> 
@@ -46,10 +46,10 @@ const idCurso = 3
             <div className={Expandir ? 'SIMaximizada' : 'SIMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardTitle"></p>
+                <p id="CardSI"></p>
                 {Expandir && (
                     <div id="conteudo">
-                        <p id="paragrafo">Sobre o curso ....</p>
+                        <p id="SIparagrafo">Sobre o curso ....</p>
                     </div>
                 )}
             </div>

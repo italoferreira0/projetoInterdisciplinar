@@ -13,10 +13,10 @@ function ADS() {
                 const curso = cursos.find(curso => curso.id === idCurso);
                 
                 if (curso) {
-                    let CardTitle = document.getElementById("CardTitle")
-                    CardTitle.innerHTML=curso.nome
+                    let CardADS = document.getElementById("CardADS")
+                    CardADS.innerHTML=curso.nome
 
-                    let paragrafo = document.querySelector("#paragrafo");
+                    let paragrafo = document.querySelector("#ADSparagrafo");
                     paragrafo.innerHTML = `
                     Instituição: ${curso.Instituicao}<br> 
                     Graduação: ${curso.graduacao} <br> 
@@ -47,10 +47,10 @@ function ADS() {
             <div className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardTitle"></p>
+                <p id="CardADS"></p>
                 {Expandir && (
                     <div id="conteudo">
-                        <p id="paragrafo">Sobre o curso ....</p>
+                        <p id="ADSparagrafo">Sobre o curso ....</p>
                     </div>
                 )}
             </div>
