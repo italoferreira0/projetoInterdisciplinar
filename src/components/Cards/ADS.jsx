@@ -1,61 +1,67 @@
 import { useState } from "react";
-import '../Cards/ADS.css'
+import '../Cards/ADS.css';
 
 function ADS() {
-    
-    const idCurso = 1 //ADS
-        
-    function carregar() {
-        fetch("/Dados.json") // buscar arquivo 
-            .then(response => response.json())
-            .then(cursos => {
-                // Filtra o curso
-                const curso = cursos.find(curso => curso.id === idCurso);
-                
-                if (curso) {
-                    let CardADS = document.getElementById("CardADS")
-                    CardADS.innerHTML=curso.nome
+    const [curso, setCurso] = useState(null); // Estado para armazenar os dados do curso
+    const idCurso = 1; // ID do curso ADS
 
-                    let paragrafo = document.querySelector("#ADSparagrafo");
-                    paragrafo.innerHTML = `
-                    Instituição: ${curso.Instituicao}<br> 
-                    Graduação: ${curso.graduacao} <br> 
-                    Períodos: ${curso.periodos}<br> 
-                    Duração: ${curso.duracao} <br> 
-                     
-                    `;
+    function carregar() {
+        fetch("/Dados.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erro ao carregar o arquivo JSON");
+                }
+                return response.json();
+            })
+            .then(cursos => {
+                const cursoEncontrado = cursos.find(curso => curso.id === idCurso);
+                if (cursoEncontrado) {
+                    setCurso(cursoEncontrado);
                 } else {
                     console.log("Curso não encontrado.");
                 }
             })
-            
+            .catch(error => {
+                console.error("Erro ao carregar os dados:", error);
+            });
     }
-    carregar()
+
+    // Chama a função carregar imediatamente após a definição
+    if (!curso) {
+        carregar();
+    }
 
     //-----------------------Expandir e Diminuir div ----------------------------------------------------
     const [Expandir, setExpandir] = useState(false);
     const alterarTamanho = () => {
         setExpandir(!Expandir);
-    }
+    };
     const recolherDiv = () => {
         setExpandir(false);
-    }
+    };
     //---------------------------------------------------------------------------------------------------
 
     return (
         <div>
-            <div className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'} onClick={alterarTamanho}
+            <div
+                className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'}
+                onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardADS"></p>
-                {Expandir && (
+                <p id="CardADS">{curso ? curso.nome : "Carregando..."}</p>
+                {Expandir && curso && (
                     <div id="conteudo">
-                        <p id="ADSparagrafo">Sobre o curso ....</p>
+                        <p id="ADSparagrafo">
+                            Instituição: {curso.Instituicao}<br />
+                            Graduação: {curso.graduacao}<br />
+                            Períodos: {curso.periodos}<br />
+                            Duração: {curso.duracao}<br />
+                        </p>
                     </div>
                 )}
             </div>
         </div>
-    )
+    );
 }
 
 export default ADS;
