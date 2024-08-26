@@ -5,7 +5,7 @@ function SistemasInformacao() {
 const idCurso = 3
         
     function carregar() {
-        fetch("/Dados.json") // buscar arquivo 
+        fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
                 // Filtra o curso
