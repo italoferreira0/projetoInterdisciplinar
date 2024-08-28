@@ -1,14 +1,22 @@
 .SIMinimizada {
+    padding: auto;
     margin-left: 140px;
     width: 200px;
     height: 100px;
-    background-color: rgb(107, 107, 107);
+    background-color: rgba(132, 132, 165, 0.479);
     transition: all 0.6s ease;
     cursor: pointer;
-    border-radius: 2px;
+    
+    border-top: solid 4px;
+    border-bottom: solid 4px;
+    border-left: solid 8px;
+    border-right:  solid 8px;
+    border-color: azure;
+
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
+
 
     display: flex;
     align-items: center;

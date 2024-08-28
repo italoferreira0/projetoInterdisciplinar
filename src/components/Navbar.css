@@ -1,6 +1,4 @@
-.Navbar{
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-
+.Custom-navbar{
+    height: 100px;
+    background-color: rgba(43, 71, 94, 0.993);
 }
