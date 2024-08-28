@@ -1,5 +1,5 @@
 .Saudacao{
-    margin-left: 100px;
+    margin-left: clamp(2rem, 5vw, 5.625rem);
     margin-bottom: 120px;
     color: white;
 }
@@ -7,5 +7,4 @@
 .SaudacaoText{
     margin-top: 30px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 90px;
-}
+    font-size: clamp(3rem, 20vw, 5.625rem);}
