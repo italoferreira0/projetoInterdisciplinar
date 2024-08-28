@@ -18,7 +18,6 @@ function PagCursos() {
                         <h1 className='SaudacaoText'>Que tal <br /> <p style={{ color: "white", textShadow: "0 0 5px #fff" }}>
                             Descobrir</p> sua área</h1>
                     </Col>
-
                 </Row>
 
                 <Row>
@@ -26,7 +25,6 @@ function PagCursos() {
                     >Cursos</h1>
                 </Row>
                 <Row>
-
                     <Col>
                         <ADS />
                     </Col>
@@ -36,10 +34,10 @@ function PagCursos() {
                     <Col>
                         <SistemasInformacao />
                     </Col>
-
-                </Row>
+                </Row>    
             </div>
         </div>
+        
     )
 }
 
