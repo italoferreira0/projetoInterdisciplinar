@@ -14,7 +14,6 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link" to="/">Cursos</Link>
                             <Link className="nav-link" to="/pagcursos">Cursos</Link>
                             <Link className="nav-link" to="/pagteste">Teste Vocacional</Link>
                         </div>
