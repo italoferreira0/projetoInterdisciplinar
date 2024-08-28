@@ -1,5 +1,4 @@
 .Custom-navbar{
-    height: 100px;
     background-color: rgba(43, 71, 94, 0.993);
-    background-image: url("/assets/textura.PNG");
+    background-image: url("../assets/textura.png");
 }

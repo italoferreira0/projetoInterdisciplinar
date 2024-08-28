@@ -7,8 +7,8 @@ import PagTeste from './Pages/PagTeste';
 function Navbar() {
     return (
         <Router>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary Custom-navbar Img-navbar">
-                <div className="container-fluid Custom-navbar">
+            <nav className="navbar navbar-expand-lg  Custom-navbar">
+                <div className="container-fluid  ">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
