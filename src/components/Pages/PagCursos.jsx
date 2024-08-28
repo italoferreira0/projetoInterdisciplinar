@@ -24,18 +24,20 @@ function PagCursos() {
                     <h1 style={{ textAlign: "center", fontFamily: "'Times New Roman', Times, serif", fontSize: "50px", color: "white" }}
                     >Cursos</h1>
                 </Row>
-                <Row>
-                    <Col>
+                <Row >
+                    <Col  >
                         <ADS />
                     </Col>
-                    <Col>
+                    <Col >
                         <Computacao />
                     </Col>
                     <Col>
                         <SistemasInformacao />
                     </Col>
                 </Row>    
+                
             </div>
+        <br /><br /><br />
         </div>
         
     )
