@@ -25,7 +25,6 @@ function PagCursos() {
                     <h1 style={{ textAlign: "center", fontFamily: "'Times New Roman', Times, serif", fontSize: "50px", color: "white" }}
                     >Cursos</h1>
                 </Row>
-
                 <Row>
 
                     <Col>
