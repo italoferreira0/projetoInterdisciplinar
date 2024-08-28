@@ -7,22 +7,22 @@ import PagTeste from './Pages/PagTeste';
 function Navbar() {
     return (
         <Router>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary Custom-navbar">
+            <nav className="navbar navbar-expand-lg bg-body-tertiary Custom-navbar Img-navbar">
                 <div className="container-fluid Custom-navbar">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link" to="/pagcursos">Cursos</Link>
-                            <Link className="nav-link" to="/pagteste">Teste Vocacional</Link>
+                            <Link className="nav-link m-2" to="/" style={{color:"#FFF", fontFamily:"bold",fontSize:"30px"}}>Cursos</Link>
+                            <Link className="nav-link m-2" to="/pagteste" style={{color:"#FFF", fontFamily:"bold",fontSize:"30px"}}>Teste Vocacional</Link>
                         </div>
                     </div>
                 </div>
             </nav>
 
             <Routes>
-                <Route path="/pagcursos" element={<PagCursos />} />
+                <Route path="/" element={<PagCursos />} />
                 <Route path="/pagteste" element={<PagTeste />} />
             </Routes>
         </Router>

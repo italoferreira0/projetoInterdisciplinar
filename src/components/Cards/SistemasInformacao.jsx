@@ -46,10 +46,10 @@ const idCurso = 3
             <div className={Expandir ? 'SIMaximizada' : 'SIMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardSI"></p>
+                <p id="CardSI" style={{color:"#FFF", fontSize:"20px"}}></p>
                 {Expandir && (
                     <div id="conteudo">
-                        <p id="SIparagrafo">Sobre o curso ....</p>
+                        <p id="SIparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
                     </div>
                 )}
             </div>

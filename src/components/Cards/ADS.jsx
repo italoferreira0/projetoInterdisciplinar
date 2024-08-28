@@ -17,7 +17,9 @@ function ADS() {
                     let CardADS = document.getElementById("CardADS")
                     CardADS.innerHTML=curso.nome
 
+
                     let paragrafo = document.querySelector("#ADSparagrafo");
+                    
                     paragrafo.innerHTML = `
                     Instituição: ${curso.Instituicao}<br> 
                     Graduação: ${curso.graduacao} <br> 
@@ -48,10 +50,10 @@ function ADS() {
             <div className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardADS"></p>
+                <p id="CardADS" style={{color:"#FFF", fontSize:"20px"}}></p>
                 {Expandir && (
                     <div id="conteudo">
-                        <p id="ADSparagrafo">Sobre o curso ....</p>
+                        <p id="ADSparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
                     </div>
                 )}
             </div>
