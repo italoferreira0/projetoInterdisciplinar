@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import "../Pages/PagCursos.css"
 
-import Footer from '../Footer';
 
 //Cards--------------------------------------------------------------------
 import ADS from '../Cards/ADS';
 import Computacao from "../Cards/Computacao"
 import SistemasInformacao from '../Cards/SistemasInformacao';
+import EngComp from '../Cards/EngComp';
 
 function PagCursos() {
     return (
-        <div className='container'>
+        <div className='container' style={{ marginBottom: "20rem" }}>
             <div className='App'>
                 <Row className='align-items-center Saudacao'>
                     <Col >
@@ -32,14 +32,16 @@ function PagCursos() {
                         <Computacao />
                     </Col>
                     <Col>
+                        <EngComp />
                         <SistemasInformacao />
+
                     </Col>
-                </Row>    
+                </Row>
                 
             </div>
-        <br /><br /><br />
+
         </div>
-        
+
     )
 }
 
