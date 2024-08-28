@@ -1,3 +1,11 @@
+.PagCursos{
+    margin-bottom: 40rem;
+    width: 100vw;  /* Ocupa 100% da largura da viewport */
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+
+    position: relative; /* Mantém o fluxo normal do documento */
+}
+
 .Saudacao{
     margin-left: 10px;
     margin-bottom: 120px;
@@ -8,3 +16,5 @@
     margin-top: 30px;
     font-family: 'Times New Roman', Times, serif;
     font-size: clamp(3rem, 18vw, 5.625rem);}
+
+

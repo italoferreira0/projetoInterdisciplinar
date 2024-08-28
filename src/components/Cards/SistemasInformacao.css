@@ -1,11 +1,8 @@
 .SIMinimizada {
     padding: auto;
 
-    margin-top: 10px;
-    margin-left: auto;
-    margin-bottom: auto;
-    margin-right: auto;
-
+    margin: 10px auto;
+    
     width: 300px;
     height: 100px;
     background-color: #132D46;
@@ -42,7 +39,6 @@
     border-right:  solid 8px;
     border-color: #FFF;
 
-    right: 100px;
-    left: auto;
+    
 
 }
