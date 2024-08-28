@@ -1,5 +1,5 @@
 .Saudacao{
-    margin-left: clamp(2rem, 5vw, 5.625rem);
+    margin-left: 10px;
     margin-bottom: 120px;
     color: white;
 }
