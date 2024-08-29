@@ -17,13 +17,13 @@ function ADS() {
                     CardCC.innerHTML=curso.nome
 
                     let paragrafo = document.querySelector("#CCparagrafo");
-                    paragrafo.innerHTML = `
-                    Instituição: ${curso.Instituicao}<br> 
-                    Graduação: ${curso.graduacao} <br> 
-                    Períodos: ${curso.periodos}<br> 
-                    Duração: ${curso.duracao} <br> 
+
+                    paragrafo.innerHTML = 
+                    "Instituição: "+curso.Instituicao
+                    +"<br>Graduação: "+curso.graduacao
+                    +"<br>Períodos: "+curso.periodos
                      
-                    `;
+                
                 } else {
                     console.log("Curso não encontrado.");
                 }
