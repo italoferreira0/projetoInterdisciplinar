@@ -47,7 +47,7 @@ function EngComp() {
             <div className={Expandir ? 'EngCMaximizada' : 'EngCMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardEngC" style={{color:"#FFF", fontSize:"20px"}} ></p>
+                <p id="CardEngC" style={{color:"#FFF", fontSize:"20px",fontFamily:"bold"}} ></p>
                 {Expandir && (
                     <div id="conteudo">
                         <p id="EngCparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>

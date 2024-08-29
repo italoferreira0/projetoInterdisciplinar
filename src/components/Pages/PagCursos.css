@@ -14,7 +14,7 @@
 
 .SaudacaoText{
     margin-top: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: clamp(3rem, 18vw, 5.625rem);}
+    font-size: clamp(3rem, 14vw, 5rem);
+    font-family: "Times New Roman", Times, serif;}
 
 

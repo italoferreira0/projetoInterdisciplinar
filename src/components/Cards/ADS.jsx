@@ -50,7 +50,7 @@ function ADS() {
             <div className={Expandir ? 'ADSMaximizada' : 'ADSMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardADS" style={{color:"#FFF", fontSize:"20px"}}></p>
+                <p id="CardADS" style={{color:"#FFF", fontSize:"20px",fontFamily:"bold"}}></p>
                 {Expandir && (
                     <div id="conteudo">
                         <p id="ADSparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>

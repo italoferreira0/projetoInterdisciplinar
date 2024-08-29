@@ -17,8 +17,8 @@ function PagCursos() {
                 <div className='App'>
                     <Row className='align-items-center Saudacao'>
                         <Col >
-                            <h1 className='SaudacaoText'>Que tal <br /> <p style={{ color: "white", textShadow: "0 0 5px #fff" }}>
-                                Descobrir</p> sua área</h1>
+                            <h1 className='SaudacaoText'>QUE TAL <br /> <p style={{ color: "white", textShadow: "0 0 5px #fff" }}>
+                                DESCOBRIR</p> SUA ÁREA?</h1>
                         </Col>
                     </Row>
 

@@ -47,7 +47,7 @@ function ADS() {
             <div className={Expandir ? 'CCMaximizada' : 'CCMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardCC" style={{color:"#FFF", fontSize:"20px"}} ></p>
+                <p id="CardCC" style={{color:"#FFF", fontSize:"20px",fontFamily:"bold"}} ></p>
                 {Expandir && (
                     <div id="conteudo">
                         <p id="CCparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
