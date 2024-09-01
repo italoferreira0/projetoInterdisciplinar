@@ -21,10 +21,13 @@ function ADS() {
                     let paragrafo = document.querySelector("#ADSparagrafo");
                     
                     paragrafo.innerHTML = 
-                    "Instituição: "+curso.Instituicao
-                    +"<br>Graduação: "+curso.graduacao
-                    +"<br>Períodos: "+curso.periodos
-                     
+                    "<b>Instituição: </b>"+curso.instituicao
+                    +"<br><b>Polo: </b>"+curso.polo
+                    +"<br><b>Graduação: </b>"+curso.graduacao
+                    +"<br><b>Períodos: </b>"+curso.periodos
+                    +"<br><b>Descrição: </b>"+curso.descricao
+                    
+                    
                 } else {
                     console.log("Curso não encontrado.");
                 }
@@ -52,6 +55,8 @@ function ADS() {
                 {Expandir && (
                     <div id="conteudo">
                         <p id="ADSparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
+                        <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
+                        <a href="src\components\Matriz\ADS-Matriz.pdf" download style={{color:"#FFF", fontFamily:"bold", fontSize:"20px",textDecoration:"none"}}>Downalod <img src="src\img\download.png" style={{width:"23px"}}/></a>
                     </div>
                 )}
             </div>
