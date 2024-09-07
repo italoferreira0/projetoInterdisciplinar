@@ -2,13 +2,12 @@ import "../components/BarraProgresso.css"
 
 import { useState, useEffect } from 'react';
 
-function BarraProgresso() {
-    const [progresso, setProgresso] = useState(20); // Define a largura inicial como 20%
-  
+function BarraProgresso({step}) {
+    const [progresso, setProgresso] = useState(0); 
     useEffect(() => {
-        // Aqui você pode manipular o estado para aumentar o progresso conforme necessário
-        setProgresso(50); // Ajuste para o valor desejado
-    }, []);
+        const novoProgresso = ((step + 0) / 4) * 100;
+        setProgresso(novoProgresso);
+    }, [step]);
 
     return (
         <div className="Barra">
