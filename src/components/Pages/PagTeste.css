@@ -1,0 +1,7 @@
+.PagTeste{
+    margin-bottom: 40rem;
+    width: 100vw;  /* Ocupa 100% da largura da viewport */
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+
+    position: relative; /* Mantém o fluxo normal do documento */
+}

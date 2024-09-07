@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import "../Pages/PagCursos.css"
 
-import Footer from '../Footer';
+
 
 //Cards--------------------------------------------------------------------
 import ADS from '../Cards/ADS';
@@ -11,6 +11,7 @@ import SistemasInformacao from '../Cards/SistemasInformacao';
 import EngComp from '../Cards/EngComp';
 
 function PagCursos() {
+    
     return (
         <div>
             <div className='container PagCursos' >

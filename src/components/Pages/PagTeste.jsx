@@ -1,7 +1,11 @@
+import "../Pages/PagTeste.css"
+import BarraProgresso from "../BarraProgresso"
+
+
 function PagTeste() {
     return(
-        <div>
-            <h1>pagina Teste</h1>
+        <div className="PagTeste">
+            <BarraProgresso/>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import '../Cards/ADS.css'
-import cursosData from "../../../Dados.json";
 
 function ADS() {
     
@@ -16,7 +15,6 @@ function ADS() {
                 if (curso) {
                     let CardADS = document.getElementById("CardADS")
                     CardADS.innerHTML=curso.nome
-
 
                     let paragrafo = document.querySelector("#ADSparagrafo");
                     
