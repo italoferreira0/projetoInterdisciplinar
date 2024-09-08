@@ -1,0 +1,33 @@
+.divPergunta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.botoes {
+    color: rgba(0, 0, 0, 0.822);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 25px;
+    border-radius: 40px;
+    height: 80px;
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.textPergunta {
+    color: rgba(0, 0, 0, 0.822);
+    font-weight: bold;
+    font-size: 30px;
+    /* color: white; */
+}
+
+.Balao {
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.938);
+    border-radius: 10px;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    background-color: white;
+}
