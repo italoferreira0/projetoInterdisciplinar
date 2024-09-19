@@ -54,7 +54,11 @@ function ADS() {
                     <div id="conteudo">
                         <p id="ADSparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
                         <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
-                        <a href="ADS-Matriz.pdf" download style={{color:"#FFF", fontFamily:"bold", fontSize:"20px",textDecoration:"none"}}>Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000" style={{width:"23px"}}/></a>
+                        
+                        <a href="/ADS-Matriz.pdf" download style={{color:"#FFF", fontFamily:"bold", fontSize:"20px",
+                        textDecoration:"none"}}>Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000" 
+                        style={{width:"23px"}}/></a>
+
                     </div>
                 )}
             </div>
