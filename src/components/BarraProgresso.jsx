@@ -7,7 +7,7 @@ function BarraProgresso({step}) {
     const [progresso, setProgresso] = useState(0); 
     useEffect(() => {
         
-        const novoProgresso = ((step + 0) / 7) * 100;
+        const novoProgresso = ((step + 0) / 6) * 100;
         setProgresso(novoProgresso);
     }, [step]);
 
