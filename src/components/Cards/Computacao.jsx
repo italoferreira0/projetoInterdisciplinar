@@ -3,7 +3,7 @@ import '../Cards/Computacao.css'
 
 function ADS() {
     
-    const idCurso = 2 
+    const idCurso = 5
         
     function carregar() {
         fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
