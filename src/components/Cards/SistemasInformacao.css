@@ -39,6 +39,18 @@
     border-right:  solid 8px;
     border-color: #FFF;
 
-    
+}
 
+@media (max-width: 768px) {
+    .SIMaximizada {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .SIMaximizada {
+        width: 95%;
+        height: 440px;
+    }
 }

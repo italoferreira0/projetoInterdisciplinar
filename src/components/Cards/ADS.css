@@ -42,7 +42,19 @@
     border-right:  solid 8px;
     border-color: #FFF;
 
-    
-
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+    .ADSMaximizada {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ADSMaximizada {
+        width: 95%;
+        height: 440px;
+    }
+}
