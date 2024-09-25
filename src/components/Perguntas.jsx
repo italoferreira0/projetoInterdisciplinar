@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import ADS from "./Cards/ADS"
+
 import "../components/Perguntas.css"
 
 import BarraProgresso from './BarraProgresso';
@@ -51,14 +54,15 @@ function Perguntas() {
         }
     }
 
-    if(Tecnologo === 5) {
+    if (Tecnologo === 5) {
         if (Telematica > Ads) {
             var maior = "Telematica"
-        }else if( Ads > Telematica){
-            var maior = "Análise e Desenvolvimento de Sistemas"
-        }    
+            var idCurso = 2
+        } else if (Ads > Telematica) {
+            var maior = "Ads"
+            var idCurso = 1
+        }
     }
-    
 
     const clickBacharelado = () => {
         setBacharelado(Bacharelado + 1)
@@ -69,7 +73,7 @@ function Perguntas() {
         nextStep()
     }
 
-    const realizarTesteNovamente = () =>{
+    const realizarTesteNovamente = () => {
         setStep(1);
         setTecnologo(0);
         setBacharelado(0);
@@ -77,7 +81,36 @@ function Perguntas() {
         setAds(0);
         setTelematica(0);
     }
-    
+
+    function carregar() {
+        fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
+            .then(response => response.json())
+            .then(cursos => {
+                // Filtra o curso
+                const curso = cursos.find(curso => curso.id === idCurso);
+
+                if (curso) {
+                    let titleCard = document.getElementById("titleCard")
+                    titleCard.innerHTML = curso.nome
+
+                    let pFinal = document.getElementById("pFinal");
+
+                    pFinal.innerHTML =
+                        "<b>Instituição: </b>" + curso.instituicao
+                        + "<br><b>Polo: </b>" + curso.polo
+                        + "<br><b>Graduação: </b>" + curso.graduacao
+                        + "<br><b>Períodos: </b>" + curso.periodos
+                        + "<br><b>Descrição: </b>" + curso.descricao
+
+
+                } else {
+                    console.log("Curso não encontrado.");
+                }
+            })
+
+    }
+    carregar()
+
     return (
         <div >
             <BarraProgresso step={step} />
@@ -138,17 +171,37 @@ function Perguntas() {
                 )
                 }
 
-                {step === 6 && Tecnologo === 5 && (
+                {step === 6 && Tecnologo === 5 && maior === "Ads" && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>ADS: {Ads}</p></div>
-                        <div className='Balao'><p className='textPergunta'>Telemática: {Telematica}</p></div>
-                        <div className='Balao'><p className='textPergunta'>{maior}</p></div>
-                        
-                        <button type="button" className="btn btn-light botoes" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+                        <div className='CardFinal'>
+                            <p id='titleCard' style={{ color: "#FFF" }}></p>
+                            <p id='pFinal' style={{ color: "#FFF" }}></p>
+                            <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
+
+                            <a href="/ADS-Matriz.pdf" download style={{
+                                color: "#FFF", fontFamily: "bold", fontSize: "20px",
+                                textDecoration: "none"
+                            }}>Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a>
+                        </div>
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
                     </div>
                 )
                 }
+                {step === 6 && Tecnologo === 5 && maior === "Telematica" && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <p id='titleCard' style={{ color: "#FFF" }}></p>
+                            <p id='pFinal' style={{ color: "#FFF" }}></p>
+                            <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
+                        </div>
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+                )
+                }
+
 
                 {/* Opção Selecionada: Bacharelado */}
                 {step === 2 && Bacharelado === 1 && (
