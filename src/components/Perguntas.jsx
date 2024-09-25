@@ -69,6 +69,15 @@ function Perguntas() {
         nextStep()
     }
 
+    const realizarTesteNovamente = () =>{
+        setStep(1);
+        setTecnologo(0);
+        setBacharelado(0);
+        setIndiferente(0);
+        setAds(0);
+        setTelematica(0);
+
+    }
     return (
         <div >
             <BarraProgresso step={step} />
@@ -134,6 +143,8 @@ function Perguntas() {
                         <div className='Balao'><p className='textPergunta'>ADS: {Ads}</p></div>
                         <div className='Balao'><p className='textPergunta'>Telemática: {Telematica}</p></div>
                         <div className='Balao'><p className='textPergunta'>{maior}</p></div>
+                        
+                        <button type="button" className="btn btn-light botoes" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
                     </div>
                 )
