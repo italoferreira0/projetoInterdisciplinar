@@ -43,3 +43,18 @@
     left: auto;
 
 }
+
+@media (max-width: 768px) {
+    .EngCMaximizada {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .EngCMaximizada {
+        width: 95%;
+        height: 440px;
+        right: auto;
+    }
+}
