@@ -76,8 +76,8 @@ function Perguntas() {
         setIndiferente(0);
         setAds(0);
         setTelematica(0);
-
     }
+    
     return (
         <div >
             <BarraProgresso step={step} />
