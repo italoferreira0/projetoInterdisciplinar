@@ -7,6 +7,7 @@ import ADS from '../Cards/ADS';
 import Computacao from "../Cards/Computacao"
 import SistemasInformacao from '../Cards/SistemasInformacao';
 import EngComp from '../Cards/EngComp';
+import Telematica from '../Cards/Telematica';
 
 function PagCursos() {
 
@@ -28,6 +29,8 @@ function PagCursos() {
                         <Col md={4} sm={12}><SistemasInformacao /></Col>
                         <Col md={4} sm={12}><EngComp /></Col>
                         <Col md={4} sm={12}><Computacao /></Col>
+                        <Col md={4} sm={12}><Telematica /></Col>
+
                     </Row>
                 </div>
             </div>

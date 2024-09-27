@@ -2,33 +2,24 @@ import { useState } from "react";
 import '../Cards/Computacao.css'
 
 function ADS() {
-    
-    const idCurso = 5
-        
+
+    const idCurso = 3
+    const [exibirCurso, setExibirCurso] = useState('')
+
     function carregar() {
         fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
                 // Filtra o curso
                 const curso = cursos.find(curso => curso.id === idCurso);
-                
+
                 if (curso) {
-                    let CardCC = document.getElementById("CardCC")
-                    CardCC.innerHTML=curso.nome
-
-                    let paragrafo = document.querySelector("#CCparagrafo");
-
-                    paragrafo.innerHTML = 
-                    "Instituição: "+curso.Instituicao
-                    +"<br>Graduação: "+curso.graduacao
-                    +"<br>Períodos: "+curso.periodos
-                     
-                
+                    setExibirCurso(curso)
                 } else {
                     console.log("Curso não encontrado.");
                 }
             })
-            
+
     }
     carregar()
 
@@ -47,10 +38,22 @@ function ADS() {
             <div className={Expandir ? 'CCMaximizada' : 'CCMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p id="CardCC" style={{color:"#FFF", fontSize:"20px",fontFamily:"bold"}} ></p>
+                <p style={{ color: "#FFF", fontSize: "20px", fontFamily: "bold" }}>{exibirCurso.nome}</p>
                 {Expandir && (
                     <div id="conteudo">
-                        <p id="CCparagrafo" style={{color:"#FFF"}}>Sobre o curso ....</p>
+                        <p style={{ color: "#FFF" }}>
+                            <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                            <b>Polo:</b> {exibirCurso.polo} <br />
+                            <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                            <b>Períodos:</b> {exibirCurso.periodos}<br />
+                            <b>Descrição:</b> {exibirCurso.descricao}<br />
+                        </p>
+
+                        <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
+                        <a href="/ADS-Matriz.pdf" download className='download'
+                        >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                            style={{ width: "23px" }} /></a>
+
                     </div>
                 )}
             </div>

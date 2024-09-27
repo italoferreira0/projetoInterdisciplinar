@@ -1,8 +1,7 @@
 import { useState } from "react";
-import '../Cards/SistemasInformacao.css'
 
-function SistemasInformacao() {
-    const idCurso = 3
+function Telematica() {
+    const idCurso = 2
     const [exibirCurso, setExibirCurso] = useState("")
 
     function carregar() {
@@ -58,7 +57,6 @@ function SistemasInformacao() {
             </div>
         </div>
     )
-
 }
 
-export default SistemasInformacao;
+export default Telematica
