@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import ADS from "./Cards/ADS"
 
 import "../components/Perguntas.css"
 
 import BarraProgresso from './BarraProgresso';
 
 function Perguntas() {
+    carregarJson()
 
     const [step, setStep] = useState(0);
+
     const [Tecnologo, setTecnologo] = useState(0);
     const [Bacharelado, setBacharelado] = useState(0);
     const [Indiferente, setIndiferente] = useState(0);
@@ -82,7 +82,9 @@ function Perguntas() {
         setTelematica(0);
     }
 
-    function carregar() {
+    const [exibirCurso, setExibirCurso] = useState('')
+
+    function carregarJson() {
         fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
@@ -90,26 +92,12 @@ function Perguntas() {
                 const curso = cursos.find(curso => curso.id === idCurso);
 
                 if (curso) {
-                    let titleCard = document.getElementById("titleCard")
-                    titleCard.innerHTML = curso.nome
-
-                    let pFinal = document.getElementById("pFinal");
-
-                    pFinal.innerHTML =
-                        "<b>Instituição: </b>" + curso.instituicao
-                        + "<br><b>Polo: </b>" + curso.polo
-                        + "<br><b>Graduação: </b>" + curso.graduacao
-                        + "<br><b>Períodos: </b>" + curso.periodos
-                        + "<br><b>Descrição: </b>" + curso.descricao
-
-
+                    setExibirCurso(curso)
                 } else {
                     console.log("Curso não encontrado.");
                 }
             })
-
     }
-    carregar()
 
     return (
         <div >
@@ -122,6 +110,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={nextStep}>Iniciar</button>
                     </div>
+
                 )}
                 {step === 1 && (
                     <div className='divPergunta'>
@@ -174,14 +163,20 @@ function Perguntas() {
                 {step === 6 && Tecnologo === 5 && maior === "Ads" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
-                            <p id='titleCard' style={{ color: "#FFF" }}></p>
-                            <p id='pFinal' style={{ color: "#FFF" }}></p>
-                            <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
+                            <h4 style={{ color: "#FFF" }}>{exibirCurso.nome}</h4>
 
-                            <a href="/ADS-Matriz.pdf" download style={{
-                                color: "#FFF", fontFamily: "bold", fontSize: "20px",
-                                textDecoration: "none"
-                            }}>Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                            <p style={{ color: "#FFF" }}>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+
+                            <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
+
+                            <a href="/ADS-Matriz.pdf" download className='download'
+                            >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
                                 style={{ width: "23px" }} /></a>
                         </div>
                         <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
@@ -192,9 +187,20 @@ function Perguntas() {
                 {step === 6 && Tecnologo === 5 && maior === "Telematica" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
-                            <p id='titleCard' style={{ color: "#FFF" }}></p>
-                            <p id='pFinal' style={{ color: "#FFF" }}></p>
-                            <p style={{color:"#FFF", fontFamily:"bold", fontSize:"20px"}}>Matriz Académica:</p>
+                            <h4 style={{ color: "#FFF" }}>{exibirCurso.nome}</h4>
+
+                            <p style={{ color: "#FFF" }}>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+                            
+                            <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
+                            <a href="/ADS-Matriz.pdf" download className='download'
+                            >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a>
                         </div>
                         <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 

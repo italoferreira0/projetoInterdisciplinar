@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 function BarraProgresso({step}) {
     
     const [progresso, setProgresso] = useState(0); 
+
     useEffect(() => {
         
         const novoProgresso = ((step + 0) / 6) * 100;
