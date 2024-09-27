@@ -196,7 +196,7 @@ function Perguntas() {
                                 <b>Períodos:</b> {exibirCurso.periodos}<br />
                                 <b>Descrição:</b> {exibirCurso.descricao}<br />
                             </p>
-                            
+
                             <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
                             <a href="/ADS-Matriz.pdf" download className='download'
                             >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
