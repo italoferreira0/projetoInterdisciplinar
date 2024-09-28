@@ -6,7 +6,7 @@ function SistemasInformacao() {
     const [exibirCurso, setExibirCurso] = useState("")
 
     function carregar() {
-        fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
+        fetch("https://json-bd.vercel.app/cursos") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
                 // Filtra o curso

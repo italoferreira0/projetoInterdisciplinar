@@ -90,7 +90,7 @@ function Perguntas() {
     const [exibirCurso, setExibirCurso] = useState('')
 
     function carregarJson() {
-        fetch("https://json-test-sigma.vercel.app/cursos") // buscar arquivo 
+        fetch("https://json-bd.vercel.app/cursos") // buscar arquivo 
             .then(response => response.json())
             .then(cursos => {
                 // Filtra o curso
@@ -249,7 +249,7 @@ function Perguntas() {
                 {step === 6 && Tecnologo === 5 && maior === 'Iguais' && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
-                            <h4 id='title0'>Teste</h4>
+                            <h4 id='title0'></h4>
                             <p id='p0' className='pFinal'></p>   {/*Ads */}
                             <h4>Matriz Académica:</h4>
 
@@ -259,7 +259,7 @@ function Perguntas() {
                         </div>
                         <br />
                         <div className='CardFinal'>
-                            <h4 id='title1'>Teste</h4>
+                            <h4 id='title1'></h4>
                             <p id='p1' className='pFinal'></p> {/*Telemática */}
                             <h4>Matriz Académica:</h4>
 
