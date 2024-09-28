@@ -42,14 +42,14 @@
 }
 
 @media (max-width: 768px) {
-    .SIMaximizada {
+    .TelMaximizada {
         width: 100%;
         height: 300px;
     }
 }
 
 @media (max-width: 480px) {
-    .SIMaximizada {
+    .TelMaximizada {
         width: 95%;
         height: 440px;
     }
