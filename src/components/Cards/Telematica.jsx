@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../Cards/Telematica.css'
 
 function Telematica() {
     const idCurso = 2
@@ -33,7 +34,7 @@ function Telematica() {
 
     return (
         <div>
-            <div className={Expandir ? 'SIMaximizada' : 'SIMinimizada'} onClick={alterarTamanho}
+            <div className={Expandir ? 'TelMaximizada' : 'TelMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
                 <p style={{ color: "#FFF", fontSize: "20px", fontFamily: "bold" }}>{exibirCurso.nome}</p>

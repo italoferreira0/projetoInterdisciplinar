@@ -1,4 +1,4 @@
-.SIMinimizada {
+.TelMinimizada {
     padding: auto;
 
     margin: 10px auto;
@@ -22,10 +22,10 @@
     justify-content: center;
 }
 
-.SIMaximizada {
+.TelMaximizada {
     z-index: 1000;
     width: 600px;
-    height: 400px;
+    height: 350px;
     background-color: #132D46;
     transition: all 0.6s ease;
     position: absolute;

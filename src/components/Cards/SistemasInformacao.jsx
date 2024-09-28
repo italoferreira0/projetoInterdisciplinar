@@ -49,7 +49,7 @@ function SistemasInformacao() {
                         </p>
 
                         <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
-                        <a href="/ADS-Matriz.pdf" download className='download'
+                        <a href="/Matriz_SS.pdf" download className='download'
                         >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
                             style={{ width: "23px" }} /></a>
 
