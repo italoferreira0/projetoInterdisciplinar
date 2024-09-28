@@ -1,6 +1,6 @@
 .divPergunta {
-    text-align: center;
     margin-top: 50px;
+    text-align: center;
 }
 
 .botoes {
@@ -51,19 +51,30 @@
 }
 
 .botaoFinal{
-    margin-top: 100px;
+    margin-top: 40px;
     color: rgba(0, 0, 0, 0.822);
     font-weight: bold;
-    margin-top: 10px;
     font-size: 25px;
     border-radius: 40px;
     height: 80px;
     width: 200px;
-    margin-left: 10px;
-    margin-right: 10px;
+    
+}
+
+h4{
+    padding-left: 10px;
+    color: #FFF;
+    text-align: left;
+}
+
+.pFinal{
+    padding-left: 10px;
+    text-align: left;
+    color:#FFF
 }
 
 .download{
+    margin-right: 20px;
     color: #FFF;
     font-family: bold;
     font-size: 20px;

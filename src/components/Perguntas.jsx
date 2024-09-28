@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import "../components/Perguntas.css"
 
 import BarraProgresso from './BarraProgresso';
 
 function Perguntas() {
-    carregarJson()
 
     const [step, setStep] = useState(0);
 
@@ -15,6 +14,8 @@ function Perguntas() {
 
     const [Ads, setAds] = useState(0)
     const [Telematica, setTelematica] = useState(0)
+    const [maior, setMaior] = useState("")
+    const [idCurso, setIdCurso] = useState(null)
 
     const nextStep = () => {
         setStep(step + 1);
@@ -54,15 +55,19 @@ function Perguntas() {
         }
     }
 
-    if (Tecnologo === 5) {
-        if (Telematica > Ads) {
-            var maior = "Telematica"
-            var idCurso = 2
-        } else if (Ads > Telematica) {
-            var maior = "Ads"
-            var idCurso = 1
+    useEffect(() => {
+        if (Tecnologo === 5) {
+            if (Telematica > Ads) {
+                setMaior("Telematica");
+                setIdCurso(2);
+            } else if (Ads > Telematica) {
+                setMaior("Ads");
+                setIdCurso(1);
+            } else {
+                setMaior("Iguais");
+            }
         }
-    }
+    }, [Tecnologo, Ads, Telematica]);
 
     const clickBacharelado = () => {
         setBacharelado(Bacharelado + 1)
@@ -93,11 +98,39 @@ function Perguntas() {
 
                 if (curso) {
                     setExibirCurso(curso)
-                } else {
-                    console.log("Curso não encontrado.");
+                }
+
+                if (maior === 'Iguais') {
+                    setExibirCurso([cursos[0], cursos[1]])
+
+                    var title0 = document.getElementById("title0")
+                    title0.innerHTML = `${exibirCurso[0].nome}`
+
+                    var p0 = document.getElementById("p0")
+                    p0.innerHTML = `
+                    <b>Intituição:</b> ${exibirCurso[0].instituicao}<br/>
+                    <b>Polo:</b> ${exibirCurso[0].polo}<br/>
+                    <b>Graduação:</b> ${exibirCurso[0].graduacao}<br/>
+                    <b>Períodos:</b> ${exibirCurso[0].periodos}<br/>
+                    <b>Descrição:</b> ${exibirCurso[0].descricao}<br/>
+                    `
+                    var title1 = document.getElementById("title1")
+                    title1.innerHTML = `${exibirCurso[1].nome}`
+
+                    var p1 = document.getElementById("p1")
+                    p1.innerHTML = `
+                    <b>Intituição:</b> ${exibirCurso[1].instituicao}<br/>
+                    <b>Polo:</b> ${exibirCurso[1].polo}<br/>
+                    <b>Graduação:</b> ${exibirCurso[1].graduacao}<br/>
+                    <b>Períodos:</b> ${exibirCurso[1].periodos}<br/>
+                    <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>
+                    `
+                    // console.log(exibirCurso[0].nome)
+                    return exibirCurso
                 }
             })
     }
+    carregarJson()
 
     return (
         <div >
@@ -108,7 +141,10 @@ function Perguntas() {
 
                         <div className='Balao'><p className='textPergunta'>Vamos iniciar o teste.</p></div>
 
-                        <button type="button" className="btn btn-light botoes" onClick={nextStep}>Iniciar</button>
+                        <span>
+                            <button type="button" className="btn btn-light botoes" onClick={nextStep}>Iniciar</button>
+
+                        </span>
                     </div>
 
                 )}
@@ -163,9 +199,9 @@ function Perguntas() {
                 {step === 6 && Tecnologo === 5 && maior === "Ads" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
-                            <h4 style={{ color: "#FFF" }}>{exibirCurso.nome}</h4>
+                            <h4>{exibirCurso.nome}</h4>
 
-                            <p style={{ color: "#FFF" }}>
+                            <p className='pFinal'>
                                 <b>Instituição:</b> {exibirCurso.instituicao} <br />
                                 <b>Polo:</b> {exibirCurso.polo} <br />
                                 <b>Graduação:</b> {exibirCurso.graduacao} <br />
@@ -173,11 +209,12 @@ function Perguntas() {
                                 <b>Descrição:</b> {exibirCurso.descricao}<br />
                             </p>
 
-                            <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
+                            <h4>Matriz Académica:</h4>
 
-                            <a href="/Matriz_Ads.pdf" download className='download'
-                            >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
-                                style={{ width: "23px" }} /></a>
+                            <p className='pFinal'><a href="/Matriz_Ads.pdf" download className='download'
+                            >Uninassau <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+
                         </div>
                         <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
@@ -187,9 +224,9 @@ function Perguntas() {
                 {step === 6 && Tecnologo === 5 && maior === "Telematica" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
-                            <h4 style={{ color: "#FFF" }}>{exibirCurso.nome}</h4>
+                            <h4>{exibirCurso.nome}</h4>
 
-                            <p style={{ color: "#FFF" }}>
+                            <p className='pFinal'>
                                 <b>Instituição:</b> {exibirCurso.instituicao} <br />
                                 <b>Polo:</b> {exibirCurso.polo} <br />
                                 <b>Graduação:</b> {exibirCurso.graduacao} <br />
@@ -197,11 +234,40 @@ function Perguntas() {
                                 <b>Descrição:</b> {exibirCurso.descricao}<br />
                             </p>
 
-                            <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
-                            <a href="/Matriz_Telematica.pdf" download className='download'
-                            >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
-                                style={{ width: "23px" }} /></a>
+                            <h4>Matriz Académica:</h4>
+
+                            <p className='pFinal'><a href="/Matriz_Telematica.pdf" download className='download'
+                            >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
                         </div>
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+
+                )
+                }
+                {step === 6 && Tecnologo === 5 && maior === 'Iguais' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4 id='title0'>Teste</h4>
+                            <p id='p0' className='pFinal'></p>   {/*Ads */}
+                            <h4>Matriz Académica:</h4>
+
+                            <p className='pFinal'><a href="/Matriz_Ads.pdf" download className='download'
+                            >Uninassau <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+                        <br />
+                        <div className='CardFinal'>
+                            <h4 id='title1'>Teste</h4>
+                            <p id='p1' className='pFinal'></p> {/*Telemática */}
+                            <h4>Matriz Académica:</h4>
+
+                            <p className='pFinal'><a href="/Matriz_Telematica.pdf" download className='download'
+                            >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+
                         <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
                     </div>
