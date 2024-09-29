@@ -26,37 +26,15 @@ function Perguntas() {
         nextStep()
 
         let valueTecnologo = e.target.value
-        switch (valueTecnologo) {
-            case '2_anos':
-                setAds(Ads + 1)
-                break;
-            case 'sim_prog':
-                setAds(Ads + 1)
-                break;
-            case 'nao_redes':
-                setAds(Ads + 1)
-                break;
-            case 'nao_telecom':
-                setAds(Ads + 1)
-                break;
-            //--------------------------------
-            case '3_anos':
-                setTelematica(Telematica + 1)
-                break;
-            case 'nao_prog':
-                setTelematica(Telematica + 1)
-                break;
-            case 'sim_redes':
-                setTelematica(Telematica + 1)
-                break;
-            case 'sim_telecom':
-                setTelematica(Telematica + 1)
-                break;
+        if (valueTecnologo === "telematica") {
+            setTelematica(Telematica + 1)
+        }else if(valueTecnologo === "ads"){
+            setAds( Ads + 1)
         }
     }
 
     useEffect(() => {
-        if (Tecnologo === 5) {
+        if (Tecnologo === 11) {
             if (Telematica > Ads) {
                 setMaior("Telematica");
                 setIdCurso(2);
@@ -125,8 +103,7 @@ function Perguntas() {
                     <b>Períodos:</b> ${exibirCurso[1].periodos}<br/>
                     <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>
                     `
-                    // console.log(exibirCurso[0].nome)
-                    return exibirCurso
+                    
                 }
             })
     }
@@ -161,9 +138,9 @@ function Perguntas() {
                 {/* Opção Selecionada: Tecnólogo */}
                 {step === 2 && Tecnologo === 1 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Quanto tempo voce pretende passar na universidade? </p></div>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'2_anos'}>2 anos</button>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'3_anos'}>3 anos</button>
+                        <div className='Balao'><p className='textPergunta'>Deseja trabalhar com redes? </p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
 
                     </div>
                 )
@@ -171,32 +148,80 @@ function Perguntas() {
 
                 {step === 3 && Tecnologo === 2 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Possui interesse em programação? </p></div>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'sim_prog'}>Sim</button>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'nao_prog'}>Não</button>
+                        <div className='Balao'><p className='textPergunta'>Deseja planejar sistemas? </p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
                     </div>
                 )
                 }
 
                 {step === 4 && Tecnologo === 3 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Possui interesse em redes de computadores? </p></div>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'sim_redes'}>Sim</button>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'nao_redes'}>Não</button>
+                        <div className='Balao'><p className='textPergunta'>Você possui interesse em Telecomunicações? </p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
                     </div>
                 )
                 }
 
                 {step === 5 && Tecnologo === 4 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Você possui interesse em Telecomunicações? </p></div>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'sim_telecom'}>Sim</button>
-                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'nao_telecom'}>Não</button>
+                        <div className='Balao'><p className='textPergunta'>Você gosta de trabalhar com design de experiência do usuário?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
                     </div>
                 )
                 }
-
-                {step === 6 && Tecnologo === 5 && maior === "Ads" && (
+                {step === 6 && Tecnologo === 5 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Você preza pela segurança e integridade dos dados em sistemas?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 7 && Tecnologo === 6 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Possui interesso por desenvolvimento e implementação de algoritmos de IA?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 8 && Tecnologo === 7 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar em projetos que envolvam inovações em hardware?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 9 && Tecnologo === 8 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Seu foco está em criar e testar aplicativos móveis?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 10 && Tecnologo === 9 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Você se interessa na criação e manutenção de redes corporativas?</p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 11 && Tecnologo === 10 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Deseja criar interfaces visuais atraentes para sites e aplicativos?
+                        </p></div>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                    </div>
+                )
+                }
+                {step === 12 && Tecnologo === 11 && maior === "Ads" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
                             <h4>{exibirCurso.nome}</h4>
@@ -221,7 +246,7 @@ function Perguntas() {
                     </div>
                 )
                 }
-                {step === 6 && Tecnologo === 5 && maior === "Telematica" && (
+                {step === 12 && Tecnologo === 11 && maior === "Telematica" && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
                             <h4>{exibirCurso.nome}</h4>
@@ -246,7 +271,7 @@ function Perguntas() {
 
                 )
                 }
-                {step === 6 && Tecnologo === 5 && maior === 'Iguais' && (
+                {step === 12 && Tecnologo === 11 && maior === 'Iguais' && (
                     <div className='divPergunta'>
                         <div className='CardFinal'>
                             <h4 id='title0'></h4>
