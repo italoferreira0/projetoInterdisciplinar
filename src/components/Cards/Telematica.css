@@ -51,6 +51,5 @@
 @media (max-width: 480px) {
     .TelMaximizada {
         width: 95%;
-        height: 400px;
-    }
+        height: 500px;    }
 }
