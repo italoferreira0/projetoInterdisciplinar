@@ -51,7 +51,7 @@ function EngComp() {
 
                         <p style={{ color: "#FFF", fontFamily: "bold", fontSize: "20px" }}>Matriz Académica:</p>
                         <a href="/Matriz_EngCom.pdf" download className='download'
-                        >Downalod <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                        >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
                             style={{ width: "23px" }} /></a>
 
                     </div>
