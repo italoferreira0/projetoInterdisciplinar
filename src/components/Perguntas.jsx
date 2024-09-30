@@ -51,7 +51,7 @@ function Perguntas() {
                 setMaior("Ads");
                 setIdCurso(1);
             } else {
-                setMaior("Iguais");
+                setMaior("Iguais_Tecnologo");
             }
         }
     }, [Tecnologo, Ads, Telematica]);
@@ -135,7 +135,7 @@ function Perguntas() {
                     setExibirCurso(curso)
                 }
 
-                if (maior === 'Iguais') {
+                if (maior === 'Iguais_Tecnologo') {
 
                     setExibirCurso([cursos[0], cursos[1]])
 
@@ -329,7 +329,7 @@ function Perguntas() {
 
                     )
                     }
-                    {step === 12 && Tecnologo === 11 && maior === 'Iguais' && (
+                    {step === 12 && Tecnologo === 11 && maior === 'Iguais_Tecnologo' && (
                         <div className='divPergunta'>
                             <div className='CardFinal'>
                                 <h4 id='title0'></h4>
