@@ -86,16 +86,20 @@ function Perguntas() {
 
         if (Bacharelado === 16) {
             if (EngCom > CieCom && EngCom > SisInf) {
-                setMaior('Engenharia da Computação')
+                setMaior('EngCom')
+                setIdCurso(5)
             } else if (CieCom > EngCom && CieCom > SisInf) {
-                setMaior('Ciencia da Computação')
+                setMaior('CieCom')
+                setIdCurso(3)
             } else if (SisInf > EngCom && SisInf > CieCom) {
-                setMaior('Sistemas de Informação')
+                setMaior('SisInf')
+                setIdCurso(4)
             } else {
                 if (EngCom === 10 && CieCom === 10 && SisInf === 10) {
                     setMaior('Melhor voce escolher outra área.')
                 } else {
-                    setMaior("Ciencia da Computação")
+                    setMaior("CieCom")
+                    setIdCurso(3)
                 }
             }
         }
@@ -476,18 +480,75 @@ function Perguntas() {
                     )
                     }
 
-                    {step === 17 && Bacharelado === 16 && (
+                    {step === 17 && Bacharelado === 16 && maior === 'CieCom' && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Fim</p></div>
-                            <h4>Engenharia da Computação: {EngCom}</h4>
-                            <h4>Ciencia da Computação: {CieCom}</h4>
-                            <h4>Sistemas de Informação: {SisInf}</h4>
-                            <h4>Curso: {maior}</h4>
+                            <div className='CardFinal'>
+                                <h4>{exibirCurso.nome}</h4>
+                                <p className='pFinal'>
+                                    <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                    <b>Polo:</b> {exibirCurso.polo} <br />
+                                    <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                    <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                    <b>Descrição:</b> {exibirCurso.descricao}<br />
+                                </p>
+                                <h4>Matriz Académica:</h4>
+                                <p className='pFinal'><a href="/Matriz_CC.pdf" download className='download'
+                                >UFCG <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                    style={{ width: "23px" }} /></a></p>
+                            </div>
+
                             <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
                         </div>
                     )
-                    }</div>
+                    }
+                    {step === 17 && Bacharelado === 16 && maior === 'EngCom' && (
+                        <div className='divPergunta'>
+                            <div className='CardFinal'>
+                                <h4>{exibirCurso.nome}</h4>
+                                <p className='pFinal'>
+                                    <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                    <b>Polo:</b> {exibirCurso.polo} <br />
+                                    <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                    <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                    <b>Descrição:</b> {exibirCurso.descricao}<br />
+                                </p>
+                                <h4>Matriz Académica:</h4>
+                                <p className='pFinal'><a href="/Matriz_EngCom.pdf" download className='download'
+                                >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                    style={{ width: "23px" }} /></a></p>
+                            </div>
+
+                            <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                        </div>
+                    )
+                    }
+                    {step === 17 && Bacharelado === 16 && maior === 'SisInf' && (
+                        <div className='divPergunta'>
+                            <div className='CardFinal'>
+                                <h4>{exibirCurso.nome}</h4>
+                                <p className='pFinal'>
+                                    <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                    <b>Polo:</b> {exibirCurso.polo} <br />
+                                    <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                    <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                    <b>Descrição:</b> {exibirCurso.descricao}<br />
+                                </p>
+                                <h4>Matriz Académica:</h4>
+                                <p className='pFinal'><a href="/Matriz_SS.pdf" download className='download'
+                                >Unifacisa <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                    style={{ width: "23px" }} /></a></p>
+                            </div>
+
+                            <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                        </div>
+                    )
+                    }
+                    
+                    </div>
+                    
                 {/* Opção Selecionada: Indiferente */}
                 {step === 2 && Indiferente === 1 && (
                     <div className='divPergunta'>
