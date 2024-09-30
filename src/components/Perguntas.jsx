@@ -85,7 +85,10 @@ function Perguntas() {
             }else if (SisInf > EngCom && SisInf > CieCom) {
                 setMaior('Sistemas de Informação')
             }else{
-                setMaior("Ciencia da Computação")
+                if (EngCom === 10 && CieCom === 10 && SisInf === 10) {
+                    setMaior('Melhor voce escolher outra área.')
+                }else{
+                setMaior("Ciencia da Computação")}
             }
         }
     }, [EngCom, CieCom, SisInf,Bacharelado ]);
@@ -470,7 +473,7 @@ function Perguntas() {
                         <h4>Engenharia da Computação: {EngCom}</h4>
                         <h4>Ciencia da Computação: {CieCom}</h4>
                         <h4>Sistemas de Informação: {SisInf}</h4>
-                        <h4>Maior: {maior}</h4>
+                        <h4>Curso: {maior}</h4>
                         <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
 
                     </div>
