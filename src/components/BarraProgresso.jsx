@@ -1,16 +1,13 @@
+import { useState, useEffect } from 'react';
 import "../components/BarraProgresso.css"
 
-import { useState, useEffect } from 'react';
-
-function BarraProgresso({step}) {
-    
+function BarraProgresso({ step, maxBarra }) {
     const [progresso, setProgresso] = useState(0); 
 
     useEffect(() => {
-        
-        const novoProgresso = ((step + 0) / 17) * 100;
+        const novoProgresso = ((step / maxBarra) * 100); // Cálculo correto com maxBarra
         setProgresso(novoProgresso);
-    }, [step]);
+    }, [step, maxBarra]);
 
     return (
         <div className="Barra">
