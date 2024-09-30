@@ -5,7 +5,7 @@ import "../components/Perguntas.css"
 import BarraProgresso from './BarraProgresso';
 
 function Perguntas() {
-
+    
     const [step, setStep] = useState(0);
 
     const [Tecnologo, setTecnologo] = useState(0);
@@ -79,9 +79,10 @@ function Perguntas() {
                 }
 
                 if (maior === 'Iguais') {
+
                     setExibirCurso([cursos[0], cursos[1]])
 
-                    var title0 = document.getElementById("title0")
+                    var title0 = document.getElementById("title0") 
                     title0.innerHTML = `${exibirCurso[0].nome}`
 
                     var p0 = document.getElementById("p0")
