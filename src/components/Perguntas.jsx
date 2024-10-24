@@ -20,6 +20,7 @@ function Perguntas() {
     const [CieCom, setCieCom] = useState(0);
 
     const [maior, setMaior] = useState("")
+    const [ponto, setPonto] = useState(0)
 
     const [idCurso, setIdCurso] = useState(null)
 
@@ -115,113 +116,54 @@ function Perguntas() {
         let concordancia = e.target.getAttribute('data-value1')
         let nomeCurso = e.target.getAttribute('data-value2')
 
-        //__________________Logica Ads ____________________________________
+        switch (concordancia) {
+            case 'C_Totalmente':
+                setPonto(4);
+                break;
+            case 'Concordo':
+                setPonto(3);
+                break;
+            case 'Discordo':
+                setPonto(2);
+                break;
+            case 'D_Totalmente':
+                setPonto(1);
+                break;
+            default:
+                break;
+        }
+        
         if (nomeCurso === 'Ads') {
-            if (concordancia === 'C_Totalmente') {
-                setAds(Ads + 4)
-            } else if (concordancia === 'Concordo') {
-                setAds(Ads + 3)
-            } else if (concordancia === 'Discordo') {
-                setAds(Ads + 2)
-            } else if (concordancia === 'D_Totalmente') {
-                setAds(Ads + 1)
-            }
+            setAds(Ads + ponto);
+        } else if (nomeCurso === 'Telematica') {
+            setTelematica(Telematica + ponto);
+        } else if (nomeCurso === 'EngCom') {
+            setEngCom(EngCom + ponto);
+        } else if (nomeCurso === 'SisInf') {
+            setSisInf(SisInf + ponto);
+        } else if (nomeCurso === 'CieCom') {
+            setCieCom(CieCom + ponto);
         }
-        //___________________Logica Telematica_____________________________
-        if (nomeCurso === 'Telematica') {
-            if (concordancia === 'C_Totalmente') {
-                setTelematica(Telematica + 4)
-            } else if (concordancia === 'Concordo') {
-                setTelematica(Telematica + 3)
-            } else if (concordancia === 'Discordo') {
-                setTelematica(Telematica + 2)
-            } else if (concordancia === 'D_Totalmente') {
-                setTelematica(Telematica + 1)
-            }
-        }
-        //_________________Logica EngCom_______________________________________
-        if (nomeCurso === 'EngCom') {
-            if (concordancia === 'C_Totalmente') {
-                setEngCom(EngCom + 4)
-            } else if (concordancia === 'Concordo') {
-                setEngCom(EngCom + 3)
-            } else if (concordancia === 'Discordo') {
-                setEngCom(EngCom + 2)
-            } else if (concordancia === 'D_Totalmente') {
-                setEngCom(EngCom + 1)
-            }
-        }
-        //_________________Logica SisInf____________________________________
-        if (nomeCurso === 'SisInf') {
-            if (concordancia === 'C_Totalmente') {
-                setSisInf(SisInf + 4)
-            } else if (concordancia === 'Concordo') {
-                setSisInf(SisInf + 3)
-            } else if (concordancia === 'Discordo') {
-                setSisInf(SisInf + 2)
-            } else if (concordancia === 'D_Totalmente') {
-                setSisInf(SisInf + 1)
-            }
-        }
-        //_________________Logica CieCom__________________________________
-        if (nomeCurso === 'CieCom') {
-            if (concordancia === 'C_Totalmente') {
-                setCieCom(CieCom + 4)
-            } else if (concordancia === 'Concordo') {
-                setCieCom(CieCom + 3)
-            } else if (concordancia === 'Discordo') {
-                setCieCom(CieCom + 2)
-            } else if (concordancia === 'D_Totalmente') {
-                setCieCom(CieCom + 1)
-            }
-        }
-
-
-        if (Ads > Telematica &&
-            Ads > EngCom &&
-            Ads > CieCom &&
-            Ads > SisInf) {
-            setMaior('Ads')
-            setIdCurso(1)
-        } else if (
-            Telematica > Ads &&
-            Telematica > EngCom &&
-            Telematica > CieCom &&
-            Telematica > SisInf
-        ) {
-            setMaior('Telematica')
-            setIdCurso(2)
-        } else if (
-            EngCom > Ads &&
-            EngCom > Telematica &&
-            EngCom > CieCom &&
-            EngCom > SisInf
-        ) {
-            setMaior('EngCom')
-            setIdCurso(5)
-        } else if (
-            CieCom > Ads &&
-            CieCom > Telematica &&
-            CieCom > SisInf &&
-            CieCom > EngCom
-        ) {
-            setMaior("CieCom")
-            setIdCurso(3)
-        } else if (
-            SisInf > Ads &&
-            SisInf > Telematica &&
-            SisInf > EngCom &&
-            SisInf > CieCom
-        ) {
-            setMaior('SisInf')
-            setIdCurso(4)
-
+        
+        if (Ads > Telematica && Ads > EngCom && Ads > CieCom && Ads > SisInf) {
+            setMaior('Ads');
+            setIdCurso(1);
+        } else if (Telematica > Ads && Telematica > EngCom && Telematica > CieCom && Telematica > SisInf) {
+            setMaior('Telematica');
+            setIdCurso(2);
+        } else if (EngCom > Ads && EngCom > Telematica && EngCom > CieCom && EngCom > SisInf) {
+            setMaior('EngCom');
+            setIdCurso(5);
+        } else if (CieCom > Ads && CieCom > Telematica && CieCom > EngCom && CieCom > SisInf) {
+            setMaior('CieCom');
+            setIdCurso(3);
+        } else if (SisInf > Ads && SisInf > Telematica && SisInf > EngCom && SisInf > CieCom) {
+            setMaior('SisInf');
+            setIdCurso(4);
         } else {
-            setMaior('CieCom')
-            setIdCurso(3)
+            setMaior('CieCom');
+            setIdCurso(3);
         }
-
-
     }
 
     const realizarTesteNovamente = () => {
@@ -977,8 +919,8 @@ function Perguntas() {
                 )
                 }
 
-                {/* 
-                <div className='textFrase'>
+            
+                {/* <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
