@@ -904,7 +904,7 @@ function Perguntas() {
                 }
                 {Indiferente === 16 && maior === 'SisInf' && (
                     <div className='divPergunta'>
-                        <div className='CardFinal'>
+                        <div className='CardSisInf'>
                             <h4>{exibirCurso.nome}</h4>
                             <p className='pFinal'>
                                 <b>Instituição:</b> {exibirCurso.instituicao} <br />
@@ -934,7 +934,7 @@ function Perguntas() {
                     <br /><br />
                     Maior: {maior}
                 </div> */}
-                
+
             </div>
         </div>
     );
