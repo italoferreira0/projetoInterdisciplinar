@@ -22,6 +22,12 @@
     /* color: white; */
 }
 
+.textFrase{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 .Balao {
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.938);
     border-radius: 10px;

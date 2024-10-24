@@ -105,9 +105,123 @@ function Perguntas() {
         }
     }, [EngCom, CieCom, SisInf, Bacharelado]);
 
-    const clickIndiferente = () => {
+    const clickIndiferente = (e) => {
         setIndiferente(Indiferente + 1)
         nextStep()
+        if (Indiferente >= 1) {
+            setMaxBarra(17)
+        }
+
+        let concordancia = e.target.getAttribute('data-value1')
+        let nomeCurso = e.target.getAttribute('data-value2')
+
+        //__________________Logica Ads ____________________________________
+        if (nomeCurso === 'Ads') {
+            if (concordancia === 'C_Totalmente') {
+                setAds(Ads + 4)
+            } else if (concordancia === 'Concordo') {
+                setAds(Ads + 3)
+            } else if (concordancia === 'Discordo') {
+                setAds(Ads + 2)
+            } else if (concordancia === 'D_Totalmente') {
+                setAds(Ads + 1)
+            }
+        }
+        //___________________Logica Telematica_____________________________
+        if (nomeCurso === 'Telematica') {
+            if (concordancia === 'C_Totalmente') {
+                setTelematica(Telematica + 4)
+            } else if (concordancia === 'Concordo') {
+                setTelematica(Telematica + 3)
+            } else if (concordancia === 'Discordo') {
+                setTelematica(Telematica + 2)
+            } else if (concordancia === 'D_Totalmente') {
+                setTelematica(Telematica + 1)
+            }
+        }
+        //_________________Logica EngCom_______________________________________
+        if (nomeCurso === 'EngCom') {
+            if (concordancia === 'C_Totalmente') {
+                setEngCom(EngCom + 4)
+            } else if (concordancia === 'Concordo') {
+                setEngCom(EngCom + 3)
+            } else if (concordancia === 'Discordo') {
+                setEngCom(EngCom + 2)
+            } else if (concordancia === 'D_Totalmente') {
+                setEngCom(EngCom + 1)
+            }
+        }
+        //_________________Logica SisInf____________________________________
+        if (nomeCurso === 'SisInf') {
+            if (concordancia === 'C_Totalmente') {
+                setSisInf(SisInf + 4)
+            } else if (concordancia === 'Concordo') {
+                setSisInf(SisInf + 3)
+            } else if (concordancia === 'Discordo') {
+                setSisInf(SisInf + 2)
+            } else if (concordancia === 'D_Totalmente') {
+                setSisInf(SisInf + 1)
+            }
+        }
+        //_________________Logica CieCom__________________________________
+        if (nomeCurso === 'CieCom') {
+            if (concordancia === 'C_Totalmente') {
+                setCieCom(CieCom + 4)
+            } else if (concordancia === 'Concordo') {
+                setCieCom(CieCom + 3)
+            } else if (concordancia === 'Discordo') {
+                setCieCom(CieCom + 2)
+            } else if (concordancia === 'D_Totalmente') {
+                setCieCom(CieCom + 1)
+            }
+        }
+
+
+        if (Ads > Telematica &&
+            Ads > EngCom &&
+            Ads > CieCom &&
+            Ads > SisInf) {
+            setMaior('Ads')
+            setIdCurso(1)
+        } else if (
+            Telematica > Ads &&
+            Telematica > EngCom &&
+            Telematica > CieCom &&
+            Telematica > SisInf
+        ) {
+            setMaior('Telematica')
+            setIdCurso(2)
+        } else if (
+            EngCom > Ads &&
+            EngCom > Telematica &&
+            EngCom > CieCom &&
+            EngCom > SisInf
+        ) {
+            setMaior('EngCom')
+            setIdCurso(5)
+        } else if (
+            CieCom > Ads &&
+            CieCom > Telematica &&
+            CieCom > SisInf &&
+            CieCom > EngCom
+        ) {
+            setMaior("CieCom")
+            setIdCurso(3)
+        } else if (
+            SisInf > Ads &&
+            SisInf > Telematica &&
+            SisInf > EngCom &&
+            SisInf > CieCom
+        ) {
+            setMaior('SisInf')
+            setIdCurso(4)
+
+        } else {
+            setMaior('CieCom')
+            setIdCurso(3)
+        }
+
+
     }
 
     const realizarTesteNovamente = () => {
@@ -120,6 +234,7 @@ function Perguntas() {
         setCieCom(0)
         setEngCom(0)
         setSisInf(0)
+        setMaior('')
     }
 
     const [exibirCurso, setExibirCurso] = useState('')
@@ -546,19 +661,332 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    
-                    </div>
-                    
+
+                </div>
+
                 {/* Opção Selecionada: Indiferente */}
                 {step === 2 && Indiferente === 1 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Você prefere Hardware ou Software?  </p></div>
-                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente}>Hardware</button>
-                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente}>Software</button>
+                        <div className='Balao'><p className='textPergunta'>Meu foco está em criar e testar aplicativos móveis.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 2 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Me atrai a ideia de criar interfaces visuais atraentes para sites e aplicativos</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 3 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com design de experiência do usuário.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 4 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Desejo trabalhar com redes.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 5 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Tenho interesse em Telecomunicações.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 6 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Você preza pela segurança e integridade dos dados em sistemas.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 7 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Me interesso por desenvolvimento e inovação em softwares de robótica</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 8 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Prefiro trabalhar em projetos que envolvam inovações em hardware.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 9 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com sistemas embarcados.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 10 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'> Estou interessado em explorar e desenvolver soluções para big data.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 11 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>  Me interesso por desenvolvimento e implementação de algoritmos de IA</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 12 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Desenvolver jogos digitais é a minha paixão</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 13 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Tenho interesse em gerenciar equipes e projetos de TI</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 14 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com gerenciamento de projetos</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 15 && (
+                    <div className='divPergunta'>
+                        <div className='Balao'><p className='textPergunta'>Gostaria de planejar um sistema.</p></div><br />
+                        <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 16 && maior === 'Ads' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4>{exibirCurso.nome}</h4>
+
+                            <p className='pFinal'>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+
+                            <h4>Matriz Académica:</h4>
+
+                            <p className='pFinal'><a href="/Matriz_Ads.pdf" download className='download'
+                            >Uninassau <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+
+                        </div>
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 16 && maior === 'Telematica' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4>{exibirCurso.nome}</h4>
+
+                            <p className='pFinal'>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+
+                            <h4>Matriz Académica:</h4>
+
+                            <p className='pFinal'><a href="/Matriz_Telematica.pdf" download className='download'
+                            >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 16 && maior === 'EngCom' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4>{exibirCurso.nome}</h4>
+                            <p className='pFinal'>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+                            <h4>Matriz Académica:</h4>
+                            <p className='pFinal'><a href="/Matriz_EngCom.pdf" download className='download'
+                            >IFPB <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+
+                )
+                }
+                {Indiferente === 16 && maior === 'CieCom' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4>{exibirCurso.nome}</h4>
+                            <p className='pFinal'>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+                            <h4>Matriz Académica:</h4>
+                            <p className='pFinal'><a href="/Matriz_CC.pdf" download className='download'
+                            >UFCG <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
+                    </div>
+                )
+                }
+                {Indiferente === 16 && maior === 'SisInf' && (
+                    <div className='divPergunta'>
+                        <div className='CardFinal'>
+                            <h4>{exibirCurso.nome}</h4>
+                            <p className='pFinal'>
+                                <b>Instituição:</b> {exibirCurso.instituicao} <br />
+                                <b>Polo:</b> {exibirCurso.polo} <br />
+                                <b>Graduação:</b> {exibirCurso.graduacao} <br />
+                                <b>Períodos:</b> {exibirCurso.periodos}<br />
+                                <b>Descrição:</b> {exibirCurso.descricao}<br />
+                            </p>
+                            <h4>Matriz Académica:</h4>
+                            <p className='pFinal'><a href="/Matriz_SS.pdf" download className='download'
+                            >Unifacisa <img src="https://img.icons8.com/?size=100&id=43532&format=png&color=000000"
+                                style={{ width: "23px" }} /></a></p>
+                        </div>
+
+                        <button type="button" className="btn btn-light botaoFinal" onClick={realizarTesteNovamente}>Realizar teste Novamente</button>
+
                     </div>
                 )
                 }
 
+                {/* 
+                <div className='textFrase'>
+                    Telematica: {Telematica} <br />
+                    Ads: {Ads} <br />
+                    CieCom: {CieCom} <br />
+                    EngCom: {EngCom} <br />
+                    SisInf: {SisInf} <br />
+                    <br /><br />
+                    Maior: {maior}
+                </div> */}
             </div>
         </div>
     );
