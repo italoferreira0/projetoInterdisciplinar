@@ -132,7 +132,7 @@ function Perguntas() {
             default:
                 break;
         }
-        
+
         if (nomeCurso === 'Ads') {
             setAds(Ads + ponto);
         } else if (nomeCurso === 'Telematica') {
@@ -144,27 +144,33 @@ function Perguntas() {
         } else if (nomeCurso === 'CieCom') {
             setCieCom(CieCom + ponto);
         }
-        
-        if (Ads > Telematica && Ads > EngCom && Ads > CieCom && Ads > SisInf) {
-            setMaior('Ads');
-            setIdCurso(1);
-        } else if (Telematica > Ads && Telematica > EngCom && Telematica > CieCom && Telematica > SisInf) {
-            setMaior('Telematica');
-            setIdCurso(2);
-        } else if (EngCom > Ads && EngCom > Telematica && EngCom > CieCom && EngCom > SisInf) {
-            setMaior('EngCom');
-            setIdCurso(5);
-        } else if (CieCom > Ads && CieCom > Telematica && CieCom > EngCom && CieCom > SisInf) {
-            setMaior('CieCom');
-            setIdCurso(3);
-        } else if (SisInf > Ads && SisInf > Telematica && SisInf > EngCom && SisInf > CieCom) {
-            setMaior('SisInf');
-            setIdCurso(4);
-        } else {
-            setMaior('CieCom');
-            setIdCurso(3);
-        }
+
     }
+    
+    useEffect(() => {
+
+        if (Indiferente === 16) {
+            if (Ads > Telematica && Ads > EngCom && Ads > CieCom && Ads > SisInf) {
+                setMaior('Ads');
+                setIdCurso(1);
+            } else if (Telematica > Ads && Telematica > EngCom && Telematica > CieCom && Telematica > SisInf) {
+                setMaior('Telematica');
+                setIdCurso(2);
+            } else if (EngCom > Ads && EngCom > Telematica && EngCom > CieCom && EngCom > SisInf) {
+                setMaior('EngCom');
+                setIdCurso(5);
+            } else if (CieCom > Ads && CieCom > Telematica && CieCom > EngCom && CieCom > SisInf) {
+                setMaior('CieCom');
+                setIdCurso(3);
+            } else if (SisInf > Ads && SisInf > Telematica && SisInf > EngCom && SisInf > CieCom) {
+                setMaior('SisInf');
+                setIdCurso(4);
+            } else {
+                setMaior('CieCom');
+                setIdCurso(3);
+            }
+        }
+    }, [EngCom, CieCom, SisInf, Bacharelado,Indiferente]);
 
     const realizarTesteNovamente = () => {
         setStep(1);
@@ -919,8 +925,8 @@ function Perguntas() {
                 )
                 }
 
-            
-                {/* <div className='textFrase'>
+
+                <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -928,7 +934,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div> */}
+                </div>
             </div>
         </div>
     );
