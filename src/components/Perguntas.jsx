@@ -20,7 +20,6 @@ function Perguntas() {
     const [CieCom, setCieCom] = useState(0);
 
     const [maior, setMaior] = useState("")
-    const [ponto, setPonto] = useState(0)
 
     const [idCurso, setIdCurso] = useState(null)
 
@@ -115,38 +114,41 @@ function Perguntas() {
 
         let concordancia = e.target.getAttribute('data-value1')
         let nomeCurso = e.target.getAttribute('data-value2')
+        let valorPonto = 0;
 
         switch (concordancia) {
             case 'C_Totalmente':
-                setPonto(4);
+                valorPonto = 5
                 break;
             case 'Concordo':
-                setPonto(3);
+                valorPonto = 4
+                break;
+            case 'Parcialmente':
+                valorPonto = 3
                 break;
             case 'Discordo':
-                setPonto(2);
+                valorPonto = 2
                 break;
             case 'D_Totalmente':
-                setPonto(1);
+                valorPonto = 1
                 break;
             default:
                 break;
         }
 
         if (nomeCurso === 'Ads') {
-            setAds(Ads + ponto);
+            setAds(prevAds => prevAds + valorPonto);
         } else if (nomeCurso === 'Telematica') {
-            setTelematica(Telematica + ponto);
+            setTelematica(prevTelematica => prevTelematica + valorPonto);
         } else if (nomeCurso === 'EngCom') {
-            setEngCom(EngCom + ponto);
+            setEngCom(prevEngCom => prevEngCom + valorPonto);
         } else if (nomeCurso === 'SisInf') {
-            setSisInf(SisInf + ponto);
+            setSisInf(prevSisInf => prevSisInf + valorPonto);
         } else if (nomeCurso === 'CieCom') {
-            setCieCom(CieCom + ponto);
+            setCieCom(prevCieCom => prevCieCom + valorPonto);
         }
-
     }
-    
+
     useEffect(() => {
 
         if (Indiferente === 16) {
@@ -170,7 +172,7 @@ function Perguntas() {
                 setIdCurso(3);
             }
         }
-    }, [EngCom, CieCom, SisInf, Bacharelado,Indiferente]);
+    }, [EngCom, CieCom, SisInf, Bacharelado, Indiferente]);
 
     const realizarTesteNovamente = () => {
         setStep(1);
@@ -620,6 +622,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
 
@@ -633,6 +636,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
 
@@ -646,6 +650,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Ads'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
 
@@ -659,6 +664,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
 
@@ -672,6 +678,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
 
@@ -685,6 +692,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
 
@@ -698,6 +706,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='EngCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
 
@@ -711,6 +720,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='EngCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
 
@@ -724,6 +734,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='EngCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='EngCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='EngCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='EngCom'>Discordo Totalmente</button>
 
@@ -737,6 +748,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='CieCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
 
@@ -750,6 +762,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='CieCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
 
@@ -763,6 +776,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='CieCom'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='CieCom'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='CieCom'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='CieCom'>Discordo Totalmente</button>
 
@@ -776,6 +790,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='SisInf'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
 
@@ -789,6 +804,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='SisInf'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
 
@@ -802,6 +818,7 @@ function Perguntas() {
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Concordo' data-value2='SisInf'>Concordo</button>
+                        <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Parcialmente' data-value2='SisInf'>Concordo Parcialmente</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='Discordo' data-value2='SisInf'>Discordo</button>
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='D_Totalmente' data-value2='SisInf'>Discordo Totalmente</button>
 
@@ -925,7 +942,7 @@ function Perguntas() {
                 )
                 }
 
-                {/* <div className='textFrase'>
+                <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -933,7 +950,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div> */}
+                </div>
 
             </div>
         </div>
