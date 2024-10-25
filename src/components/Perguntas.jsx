@@ -30,31 +30,54 @@ function Perguntas() {
     const clickTecnologo = (e) => {
         setTecnologo(Tecnologo + 1)
         nextStep()
+        if (Tecnologo >= 1) {
+            setMaxBarra(12)
+        }
 
-        let valueTecnologo = e.target.value
-        if (valueTecnologo === "telematica") {
-            setTelematica(Telematica + 1)
-        } else if (valueTecnologo === "ads") {
-            setAds(Ads + 1)
+        let concordancia = e.target.getAttribute('data-value1')
+        let nomeCurso = e.target.getAttribute('data-value2')
+        let valorPonto = 0;
+
+        switch (concordancia) {
+            case 'C_Totalmente':
+                valorPonto = 5
+                break;
+            case 'Concordo':
+                valorPonto = 4
+                break;
+            case 'Parcialmente':
+                valorPonto = 3
+                break;
+            case 'Discordo':
+                valorPonto = 2
+                break;
+            case 'D_Totalmente':
+                valorPonto = 1
+                break;
+            default:
+                break;
+        }
+
+        if (nomeCurso === 'Ads') {
+            setAds(prevAds => prevAds + valorPonto);
+        } else if (nomeCurso === 'Telematica') {
+            setTelematica(prevTelematica => prevTelematica + valorPonto);
         }
     }
 
     useEffect(() => {
-        if (Telematica >= 1) {
-            setMaxBarra(12)
-        }
         if (Tecnologo === 11) {
             if (Telematica > Ads) {
-                setMaior("Telematica");
+                setMaior('Telematica');
                 setIdCurso(2);
             } else if (Ads > Telematica) {
-                setMaior("Ads");
+                setMaior('Ads');
                 setIdCurso(1);
             } else {
                 setMaior("Iguais_Tecnologo");
             }
         }
-    }, [Tecnologo, Ads, Telematica]);
+    }, [Tecnologo, Telematica, Ads]);
 
     const clickBacharelado = (e) => {
         setBacharelado(Bacharelado + 1)
@@ -252,6 +275,7 @@ function Perguntas() {
                     {step === 1 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>O que você prefere?</p></div>
+
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo}>Tecnólogo</button>
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado}>Bacharelado</button>
                             <button type="button" className="btn btn-light botoes" onClick={clickIndiferente}>Indiferente</button>
@@ -260,87 +284,143 @@ function Perguntas() {
                     )}
 
                     {/* Opção Selecionada: Tecnólogo */}
-                    {step === 2 && Tecnologo === 1 && (
+                    {Tecnologo === 1 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Deseja trabalhar com redes? </p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                            <div className='Balao'><p className='textPergunta'>Deseja trabalhar com redes. </p></div>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
 
-                    {step === 3 && Tecnologo === 2 && (
+                    {Tecnologo === 2 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Deseja planejar sistemas? </p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
                         </div>
                     )
                     }
 
-                    {step === 4 && Tecnologo === 3 && (
+                    {Tecnologo === 3 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você possui interesse em Telecomunicações? </p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                            <div className='Balao'><p className='textPergunta'>Você possui interesse em Telecomunicações. </p></div>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
 
-                    {step === 5 && Tecnologo === 4 && (
+                    {Tecnologo === 4 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você gosta de trabalhar com design de experiência do usuário?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                            <div className='Balao'><p className='textPergunta'>Você gosta de trabalhar com design de experiência do usuário.</p></div>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
                         </div>
                     )
                     }
-                    {step === 6 && Tecnologo === 5 && (
+                    {Tecnologo === 5 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você preza pela segurança e integridade dos dados em sistemas?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
-                    {step === 7 && Tecnologo === 6 && (
+                    {Tecnologo === 6 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Possui interesso por desenvolvimento e implementação de algoritmos de IA?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
                         </div>
                     )
                     }
-                    {step === 8 && Tecnologo === 7 && (
+                    {Tecnologo === 7 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar em projetos que envolvam inovações em hardware?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
-                    {step === 9 && Tecnologo === 8 && (
+                    {Tecnologo === 8 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Seu foco está em criar e testar aplicativos móveis?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
                         </div>
                     )
                     }
-                    {step === 10 && Tecnologo === 9 && (
+                    {Tecnologo === 9 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você se interessa na criação e manutenção de redes corporativas?</p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Telematica'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Telematica'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Telematica'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Telematica'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
-                    {step === 11 && Tecnologo === 10 && (
+                    {Tecnologo === 10 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Deseja criar interfaces visuais atraentes para sites e aplicativos?
                             </p></div>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'ads'}>Sim</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} value={'telematica'}>Não</button>
+                            <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
+
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Concordo' data-value2='Ads'>Concordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Parcialmente' data-value2='Ads'>Concordo Parcialmente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='Discordo' data-value2='Ads'>Discordo</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='D_Totalmente' data-value2='Ads'>Discordo Totalmente</button>
+
                         </div>
                     )
                     }
@@ -615,7 +695,7 @@ function Perguntas() {
                 </div>
 
                 {/* Opção Selecionada: Indiferente */}
-                {step === 2 && Indiferente === 1 && (
+                {Indiferente === 1 && (
                     <div className='divPergunta'>
                         <div className='Balao'><p className='textPergunta'>Meu foco está em criar e testar aplicativos móveis.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -942,7 +1022,7 @@ function Perguntas() {
                 )
                 }
 
-                {/* <div className='textFrase'>
+                <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -950,7 +1030,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div> */}
+                </div>
 
             </div>
         </div>
