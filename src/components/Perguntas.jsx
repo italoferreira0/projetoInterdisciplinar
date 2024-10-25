@@ -942,7 +942,7 @@ function Perguntas() {
                 )
                 }
 
-                <div className='textFrase'>
+                {/* <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -950,7 +950,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div>
+                </div> */}
 
             </div>
         </div>
