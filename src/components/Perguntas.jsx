@@ -23,7 +23,7 @@ function Perguntas() {
 
     const [idCurso, setIdCurso] = useState(null)
 
-    const nextStep = () => {
+    function nextStep(){
         setStep(step + 1);
     }
 
@@ -52,7 +52,7 @@ function Perguntas() {
         return valorPonto
     }
 
-    const clickTecnologo = (e) => {
+    function clickTecnologo(e){
         setTecnologo(Tecnologo + 1)
         nextStep()
         if (Tecnologo >= 1) {
@@ -71,7 +71,7 @@ function Perguntas() {
         }
     }
 
-    const clickBacharelado = (e) => {
+    function clickBacharelado(e){
         setBacharelado(Bacharelado + 1)
         nextStep()
         if (Bacharelado >= 1) {
@@ -92,7 +92,7 @@ function Perguntas() {
         }
     }
 
-    const clickIndiferente = (e) => {
+    function clickIndiferente(e){
         setIndiferente(Indiferente + 1)
         nextStep()
         if (Indiferente >= 1) {
@@ -174,7 +174,7 @@ function Perguntas() {
 
     }, [Ads, Telematica, CieCom, EngCom, SisInf, Tecnologo, Bacharelado, Indiferente]);
 
-    const realizarTesteNovamente = () => {
+    function realizarTesteNovamente(){
         setStep(1);
         setTecnologo(0);
         setBacharelado(0);
@@ -226,7 +226,6 @@ function Perguntas() {
                     <b>Períodos:</b> ${exibirCurso[1].periodos}<br/>
                     <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>
                     `
-
                 }
             })
     }
@@ -1092,7 +1091,7 @@ function Perguntas() {
                 )
                 }
 
-                <div className='textFrase'>
+                {/*<div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -1100,7 +1099,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div>
+                </div>*/}
 
             </div>
         </div>
