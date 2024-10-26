@@ -276,7 +276,7 @@ function Perguntas() {
 
                     {Tecnologo === 2 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Deseja planejar sistemas? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Deseja planejar sistemas. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
@@ -318,7 +318,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 5 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você preza pela segurança e integridade dos dados em sistemas?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Você preza pela segurança e integridade dos dados em sistemas.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
@@ -332,7 +332,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 6 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Possui interesso por desenvolvimento e implementação de algoritmos de IA?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Possuo interesse por desenvolvimento e implementação de algoritmos de IA.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
@@ -345,7 +345,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 7 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar em projetos que envolvam inovações em hardware?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar em projetos que envolvam inovações em hardware.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
@@ -359,7 +359,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 8 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Seu foco está em criar e testar aplicativos móveis?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Seu foco está em criar e testar aplicativos móveis.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
@@ -372,7 +372,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 9 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você se interessa na criação e manutenção de redes corporativas?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Você se interessa na criação e manutenção de redes corporativas.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo} data-value1='C_Totalmente' data-value2='Telematica'>Concordo Totalmento</button>
@@ -386,7 +386,7 @@ function Perguntas() {
                     }
                     {Tecnologo === 10 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Deseja criar interfaces visuais atraentes para sites e aplicativos?
+                            <div className='Balao'><p className='textPergunta'>Deseja criar interfaces visuais atraentes para sites e aplicativos.
                             </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
@@ -481,7 +481,7 @@ function Perguntas() {
                 <div>
                     {Bacharelado === 1 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gosta de trabalhar com lógica? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Gosta de trabalhar com lógica. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -495,7 +495,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 2 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver inovaçãos em softwares de robótica?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver inovaçãos em softwares de robótica.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -509,7 +509,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 3 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver interfaces visuais atraentes para sites e aplicativos?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver interfaces visuais atraentes para sites e aplicativos.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
@@ -523,7 +523,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 4 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Prezo pela segurança e integridade dos dados em sistemas? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Prezo pela segurança e integridade dos dados em sistemas. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -537,7 +537,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 5 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'> Deseja trabalhar em projetos que envolvam inovações em hardware? </p></div>
+                            <div className='Balao'><p className='textPergunta'> Deseja trabalhar em projetos que envolvam inovações em hardware. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -551,7 +551,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 6 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Tem interesse em gerenciar equipes e projetos de TI?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Tenho interesse em gerenciar equipes e projetos de TI.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
@@ -565,7 +565,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 7 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Tem interesse em explorar e desenvolver soluções para big data?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Tem interesse em explorar e desenvolver soluções para big data.</p></div>
 
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
@@ -580,7 +580,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 8 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com sistemas embarcados?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com sistemas embarcados.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -594,7 +594,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 9 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com design de experiência do usuário?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com design de experiência do usuário.</p></div>
 
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
@@ -609,7 +609,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 10 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver jogos digitais? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver jogos digitais. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -624,7 +624,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 11 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gostaria de melhorar o desempenho de sistemas? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Gostaria de melhorar o desempenho de sistemas. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -638,7 +638,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 12 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você tem interesse em planejar um sistema?</p></div>
+                            <div className='Balao'><p className='textPergunta'>Você tem interesse em planejar um sistema.</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
@@ -652,7 +652,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 13 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'> Gostaria de desenvolver e implementar algoritmos de IA? </p></div>
+                            <div className='Balao'><p className='textPergunta'> Gostaria de desenvolver e implementar algoritmos de IA. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -666,7 +666,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 14 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Você tem interesse em saber como funcionam as redes de computadores? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Você tem interesse em saber como funcionam as redes de computadores. </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -680,7 +680,7 @@ function Perguntas() {
                     }
                     {Bacharelado === 15 && (
                         <div className='divPergunta'>
-                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com o gerenciamento de projetos? </p></div>
+                            <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com o gerenciamento de projetos. </p></div>
 
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
@@ -740,7 +740,7 @@ function Perguntas() {
                     }
                     {step === 17 && Bacharelado === 16 && maior === 'SisInf' && (
                         <div className='divPergunta'>
-                            <div className='CardFinal'>
+                            <div className='CardSisInf'>
                                 <h4>{exibirCurso.nome}</h4>
                                 <p className='pFinal'>
                                     <b>Instituição:</b> {exibirCurso.instituicao} <br />
@@ -780,7 +780,7 @@ function Perguntas() {
                 }
                 {Indiferente === 2 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Me atrai a ideia de criar interfaces visuais atraentes para sites e aplicativos</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>Me atrai a ideia de criar interfaces visuais atraentes para sites e aplicativos.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='Ads'>Concordo Totalmento</button>
@@ -850,7 +850,7 @@ function Perguntas() {
                 }
                 {Indiferente === 7 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Me interesso por desenvolvimento e inovação em softwares de robótica</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>Me interesso por desenvolvimento e inovação em softwares de robótica.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='EngCom'>Concordo Totalmento</button>
@@ -906,7 +906,7 @@ function Perguntas() {
                 }
                 {Indiferente === 11 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>  Me interesso por desenvolvimento e implementação de algoritmos de IA</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>  Me interesso por desenvolvimento e implementação de algoritmos de IA.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -920,7 +920,7 @@ function Perguntas() {
                 }
                 {Indiferente === 12 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Desenvolver jogos digitais é a minha paixão</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>Desenvolver jogos digitais é a minha paixão.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='CieCom'>Concordo Totalmento</button>
@@ -934,7 +934,7 @@ function Perguntas() {
                 }
                 {Indiferente === 13 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Tenho interesse em gerenciar equipes e projetos de TI</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>Tenho interesse em gerenciar equipes e projetos de TI.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
@@ -948,7 +948,7 @@ function Perguntas() {
                 }
                 {Indiferente === 14 && (
                     <div className='divPergunta'>
-                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com gerenciamento de projetos</p></div><br />
+                        <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com gerenciamento de projetos.</p></div><br />
                         <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
 
                         <button type="button" className="btn btn-light botoes" onClick={clickIndiferente} data-value1='C_Totalmente' data-value2='SisInf'>Concordo Totalmento</button>
