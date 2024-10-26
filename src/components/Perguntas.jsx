@@ -27,15 +27,7 @@ function Perguntas() {
         setStep(step + 1);
     }
 
-    const clickTecnologo = (e) => {
-        setTecnologo(Tecnologo + 1)
-        nextStep()
-        if (Tecnologo >= 1) {
-            setMaxBarra(12)
-        }
-
-        let concordancia = e.target.getAttribute('data-value1')
-        let nomeCurso = e.target.getAttribute('data-value2')
+    function adiconarPonto(concordancia) {
         let valorPonto = 0;
 
         switch (concordancia) {
@@ -57,6 +49,20 @@ function Perguntas() {
             default:
                 break;
         }
+        return valorPonto
+    }
+
+    const clickTecnologo = (e) => {
+        setTecnologo(Tecnologo + 1)
+        nextStep()
+        if (Tecnologo >= 1) {
+            setMaxBarra(12)
+        }
+
+        let concordancia = e.target.getAttribute('data-value1')
+        let nomeCurso = e.target.getAttribute('data-value2')
+
+        let valorPonto = adiconarPonto(concordancia)
 
         if (nomeCurso === 'Ads') {
             setAds(prevAds => prevAds + valorPonto);
@@ -74,28 +80,9 @@ function Perguntas() {
 
         let concordancia = e.target.getAttribute('data-value1')
         let nomeCurso = e.target.getAttribute('data-value2')
-        let valorPonto = 0;
 
-        switch (concordancia) {
-            case 'C_Totalmente':
-                valorPonto = 5
-                break;
-            case 'Concordo':
-                valorPonto = 4
-                break;
-            case 'Parcialmente':
-                valorPonto = 3
-                break;
-            case 'Discordo':
-                valorPonto = 2
-                break;
-            case 'D_Totalmente':
-                valorPonto = 1
-                break;
-            default:
-                break;
-        }
-
+        let valorPonto = adiconarPonto(concordancia)
+        
         if (nomeCurso === 'EngCom') {
             setEngCom(prevEngCom => prevEngCom + valorPonto);
         } else if (nomeCurso === 'SisInf') {
@@ -114,27 +101,8 @@ function Perguntas() {
 
         let concordancia = e.target.getAttribute('data-value1')
         let nomeCurso = e.target.getAttribute('data-value2')
-        let valorPonto = 0;
-
-        switch (concordancia) {
-            case 'C_Totalmente':
-                valorPonto = 5
-                break;
-            case 'Concordo':
-                valorPonto = 4
-                break;
-            case 'Parcialmente':
-                valorPonto = 3
-                break;
-            case 'Discordo':
-                valorPonto = 2
-                break;
-            case 'D_Totalmente':
-                valorPonto = 1
-                break;
-            default:
-                break;
-        }
+        
+        let valorPonto = adiconarPonto(concordancia)
 
         if (nomeCurso === 'Ads') {
             setAds(prevAds => prevAds + valorPonto);
@@ -540,7 +508,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 3 && (
+                    {Bacharelado === 3 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver interfaces visuais atraentes para sites e aplicativos?</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -568,7 +536,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 5 && (
+                    {Bacharelado === 5 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'> Deseja trabalhar em projetos que envolvam inovações em hardware? </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -582,7 +550,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 6 && (
+                    {Bacharelado === 6 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Tem interesse em gerenciar equipes e projetos de TI?</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -611,7 +579,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 8 && (
+                    {Bacharelado === 8 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com sistemas embarcados?</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -625,7 +593,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 9 && (
+                    {Bacharelado === 9 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Gostaria de trabalhar com design de experiência do usuário?</p></div>
 
@@ -640,7 +608,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 10 && (
+                    {Bacharelado === 10 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você tem interesse em desenvolver jogos digitais? </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -655,7 +623,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 11 && (
+                    {Bacharelado === 11 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Gostaria de melhorar o desempenho de sistemas? </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -669,7 +637,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 12 && (
+                    {Bacharelado === 12 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você tem interesse em planejar um sistema?</p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -683,7 +651,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 13 && (
+                    {Bacharelado === 13 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'> Gostaria de desenvolver e implementar algoritmos de IA? </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -697,7 +665,7 @@ function Perguntas() {
                         </div>
                     )
                     }
-                    { Bacharelado === 14 && (
+                    {Bacharelado === 14 && (
                         <div className='divPergunta'>
                             <div className='Balao'><p className='textPergunta'>Você tem interesse em saber como funcionam as redes de computadores? </p></div>
                             <div className=''><p className='textFrase'>Você concorda com a frase acima?</p></div>
@@ -1124,7 +1092,7 @@ function Perguntas() {
                 )
                 }
 
-                {/* <div className='textFrase'>
+                <div className='textFrase'>
                     Telematica: {Telematica} <br />
                     Ads: {Ads} <br />
                     CieCom: {CieCom} <br />
@@ -1132,7 +1100,7 @@ function Perguntas() {
                     SisInf: {SisInf} <br />
                     <br /><br />
                     Maior: {maior}
-                </div> */}
+                </div>
 
             </div>
         </div>
