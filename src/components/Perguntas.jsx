@@ -286,7 +286,7 @@ function Perguntas() {
 
                             <button type="button" className="btn btn-light botoes" onClick={clickTecnologo}>Tecnólogo</button>
                             <button type="button" className="btn btn-light botoes" onClick={clickBacharelado}>Bacharelado</button>
-                            <button type="button" className="btn btn-light botoes" onClick={clickIndiferente}>Indiferente</button>
+                            <button type="button" className="btn btn-light botoes" onClick={clickIndiferente}>Não Sei</button>
                         </div>
 
                     )}
