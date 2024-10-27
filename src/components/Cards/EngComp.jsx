@@ -2,26 +2,24 @@ import { useState } from "react";
 import '../Cards/EngComp.css'
 
 function EngComp() {
-    
-    const idCurso = 5
     const [exibirCurso, setExibirCurso] = useState("")
-        
-    function carregar() {
-        fetch("https://json-bd.vercel.app/cursos") // buscar arquivo 
-            .then(response => response.json())
-            .then(cursos => {
-                // Filtra o curso
-                const curso = cursos.find(curso => curso.id === idCurso);
-                
-                if (curso) {
-                    setExibirCurso(curso)
-                } else {
-                    console.log("Curso não encontrado.");
-                }
-            })
-            
+
+    async function carregarCard(idCurso) {
+        try {
+            const response = await fetch("https://json-bd.vercel.app/cursos", {
+                cache: "force-cache",
+            });
+            const cursos = await response.json();
+            const curso = cursos.find(curso => curso.id === idCurso);
+            if (curso) {
+                setExibirCurso(curso)
+            }
+        } catch (error) {
+            console.error("Erro ao carregar JSON:", error);
+        }
     }
-    carregar()
+
+    carregarCard(5)
 
     //-----------------------Expandir e Diminuir div ----------------------------------------------------
     const [Expandir, setExpandir] = useState(false);
@@ -38,7 +36,7 @@ function EngComp() {
             <div className={Expandir ? 'EngCMaximizada' : 'EngCMinimizada'} onClick={alterarTamanho}
                 onMouseLeave={recolherDiv}
             >
-                <p style={{color:"#FFF", fontSize:"20px",fontFamily:"bold"}} >{exibirCurso.nome}</p>
+                <p style={{ color: "#FFF", fontSize: "20px", fontFamily: "bold" }} >{exibirCurso.nome}</p>
                 {Expandir && (
                     <div id="conteudo">
                         <p style={{ color: "#FFF" }}>

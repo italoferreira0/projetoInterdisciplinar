@@ -23,7 +23,7 @@ function Perguntas() {
 
     const [idCurso, setIdCurso] = useState(null)
 
-    function nextStep(){
+    function nextStep() {
         setStep(step + 1);
     }
 
@@ -52,7 +52,7 @@ function Perguntas() {
         return valorPonto
     }
 
-    function clickTecnologo(e){
+    function clickTecnologo(e) {
         setTecnologo(Tecnologo + 1)
         nextStep()
         if (Tecnologo >= 1) {
@@ -71,7 +71,7 @@ function Perguntas() {
         }
     }
 
-    function clickBacharelado(e){
+    function clickBacharelado(e) {
         setBacharelado(Bacharelado + 1)
         nextStep()
         if (Bacharelado >= 1) {
@@ -82,7 +82,7 @@ function Perguntas() {
         let nomeCurso = e.target.getAttribute('data-value2')
 
         let valorPonto = adiconarPonto(concordancia)
-        
+
         if (nomeCurso === 'EngCom') {
             setEngCom(prevEngCom => prevEngCom + valorPonto);
         } else if (nomeCurso === 'SisInf') {
@@ -92,7 +92,7 @@ function Perguntas() {
         }
     }
 
-    function clickIndiferente(e){
+    function clickIndiferente(e) {
         setIndiferente(Indiferente + 1)
         nextStep()
         if (Indiferente >= 1) {
@@ -101,7 +101,7 @@ function Perguntas() {
 
         let concordancia = e.target.getAttribute('data-value1')
         let nomeCurso = e.target.getAttribute('data-value2')
-        
+
         let valorPonto = adiconarPonto(concordancia)
 
         if (nomeCurso === 'Ads') {
@@ -174,7 +174,7 @@ function Perguntas() {
 
     }, [Ads, Telematica, CieCom, EngCom, SisInf, Tecnologo, Bacharelado, Indiferente]);
 
-    function realizarTesteNovamente(){
+    function realizarTesteNovamente() {
         setStep(1);
         setTecnologo(0);
         setBacharelado(0);
@@ -189,46 +189,54 @@ function Perguntas() {
 
     const [exibirCurso, setExibirCurso] = useState('')
 
-    function carregarJson() {
-        fetch("https://json-bd.vercel.app/cursos") // buscar arquivo 
-            .then(response => response.json())
-            .then(cursos => {
-                // Filtra o curso
-                const curso = cursos.find(curso => curso.id === idCurso);
 
-                if (curso) {
-                    setExibirCurso(curso)
-                }
 
-                if (maior === 'Iguais_Tecnologo') {
+    async function carregarJson() {
+        try {
+            const response = await fetch("https://json-bd.vercel.app/cursos", {
+                cache: "force-cache", 
+            });
+            const cursos = await response.json();
 
-                    setExibirCurso([cursos[0], cursos[1]])
+            const curso = cursos.find(curso => curso.id === idCurso);
 
-                    var title0 = document.getElementById("title0")
-                    title0.innerHTML = `${exibirCurso[0].nome}`
+            if (curso) {
+                setExibirCurso(curso)
+            }
 
-                    var p0 = document.getElementById("p0")
-                    p0.innerHTML = `
+            if (maior === 'Iguais_Tecnologo') {
+
+                setExibirCurso([cursos[0], cursos[1]])
+
+                var title0 = document.getElementById("title0")
+                title0.innerHTML = `${exibirCurso[0].nome}`
+
+                var p0 = document.getElementById("p0")
+                p0.innerHTML = `
                     <b>Intituição:</b> ${exibirCurso[0].instituicao}<br/>
                     <b>Polo:</b> ${exibirCurso[0].polo}<br/>
                     <b>Graduação:</b> ${exibirCurso[0].graduacao}<br/>
                     <b>Períodos:</b> ${exibirCurso[0].periodos}<br/>
-                    <b>Descrição:</b> ${exibirCurso[0].descricao}<br/>
-                    `
-                    var title1 = document.getElementById("title1")
-                    title1.innerHTML = `${exibirCurso[1].nome}`
+                    <b>Descrição:</b> ${exibirCurso[0].descricao}<br/>`
 
-                    var p1 = document.getElementById("p1")
-                    p1.innerHTML = `
+                var title1 = document.getElementById("title1")
+                title1.innerHTML = `${exibirCurso[1].nome}`
+
+                var p1 = document.getElementById("p1")
+                p1.innerHTML = `
                     <b>Intituição:</b> ${exibirCurso[1].instituicao}<br/>
                     <b>Polo:</b> ${exibirCurso[1].polo}<br/>
                     <b>Graduação:</b> ${exibirCurso[1].graduacao}<br/>
                     <b>Períodos:</b> ${exibirCurso[1].periodos}<br/>
-                    <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>
-                    `
-                }
-            })
+                    <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>`
+
+            }
+
+        } catch (error) {
+            console.error("Erro ao carregar JSON:", error);
+        }
     }
+
     carregarJson()
 
     return (
