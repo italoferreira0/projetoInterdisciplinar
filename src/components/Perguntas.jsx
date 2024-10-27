@@ -189,8 +189,6 @@ function Perguntas() {
 
     const [exibirCurso, setExibirCurso] = useState('')
 
-
-
     async function carregarJson() {
         try {
             const response = await fetch("https://json-bd.vercel.app/cursos", {
@@ -203,7 +201,6 @@ function Perguntas() {
             if (curso) {
                 setExibirCurso(curso)
             }
-
             if (maior === 'Iguais_Tecnologo') {
 
                 setExibirCurso([cursos[0], cursos[1]])
@@ -229,14 +226,11 @@ function Perguntas() {
                     <b>Graduação:</b> ${exibirCurso[1].graduacao}<br/>
                     <b>Períodos:</b> ${exibirCurso[1].periodos}<br/>
                     <b>Descrição:</b> ${exibirCurso[1].descricao}<br/>`
-
             }
-
         } catch (error) {
             console.error("Erro ao carregar JSON:", error);
         }
     }
-
     carregarJson()
 
     return (
